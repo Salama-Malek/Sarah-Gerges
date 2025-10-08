@@ -1,0 +1,281 @@
+{
+  "languageNames": [
+    { "code": "en", "label": "English" },
+    { "code": "ru", "label": "Русский" },
+    { "code": "ar", "label": "العربية" }
+  ],
+  "brand": "SA Online School",
+  "nav": {
+    "home": "Home",
+    "features": "Why Us",
+    "about": "Founder",
+    "courses": "Courses",
+    "testimonials": "Testimonials",
+    "pricing": "Pricing",
+    "rules": "Rules",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Learn Languages, Connect Worlds",
+    "title": "Learn Arabic, Russian, and English from passionate native teachers.",
+    "subtitle": "Interactive online lessons for every age and level.",
+    "primaryCta": "Start Learning",
+    "secondaryCta": "Contact Us",
+    "scrollHint": "Scroll to explore"
+  },
+  "features": {
+    "title": "Why SA Online School?",
+    "subtitle": "A studio of native-speaking educators building confidence through conversation, culture, and care.",
+    "items": [
+      {
+        "title": "Personalized Learning Path",
+        "description": "We craft adaptive roadmaps that respect your pace, goals, and preferred learning style."
+      },
+      {
+        "title": "Native Certified Teachers",
+        "description": "Work with experienced educators who teach from lived cultural context and professional expertise."
+      },
+      {
+        "title": "Flexible Schedules",
+        "description": "Schedule sessions that harmonize with your work, family, and travel commitments across time zones."
+      },
+      {
+        "title": "One-on-One or Group Lessons",
+        "description": "Choose intimate mentoring or collaborative classes to practice in real-world scenarios."
+      }
+    ],
+    "stats": [
+      {
+        "label": "Learners supported",
+        "value": "500+"
+      },
+      {
+        "label": "Years of teaching",
+        "value": "6"
+      }
+    ]
+  },
+  "about": {
+    "title": "Meet Sarah Gerges",
+    "body": "Sarah founded SA Online School to make language learning deeply human and accessible. Raised between Alexandria, Moscow, and Toronto, she believes languages are bridges that connect stories and careers. With a background in linguistics and educational leadership, Sarah leads a community of teachers who mentor students with patience, warmth, and strategic clarity.",
+    "highlight": "We teach you to listen bravely, speak confidently, and belong anywhere."
+  },
+  "courses": {
+    "title": "Courses designed for global citizens",
+    "subtitle": "From survival phrases to professional fluency, discover pathways that grow with you.",
+    "filters": [
+      { "key": "arabic", "label": "Arabic" },
+      { "key": "russian", "label": "Russian" },
+      { "key": "mixed", "label": "Mixed" }
+    ],
+    "items": [
+      {
+        "id": "arabic-foundations",
+        "language": "arabic",
+        "title": "Arabic Foundations",
+        "emoji": "🇪🇬",
+        "duration": "12 weeks",
+        "level": "Beginner",
+        "description": "Master reading, writing, and speaking essentials with Egyptian and Levantine dialect spotlights."
+      },
+      {
+        "id": "arabic-professional",
+        "language": "arabic",
+        "title": "Arabic for Professionals",
+        "emoji": "🌍",
+        "duration": "10 weeks",
+        "level": "Intermediate",
+        "description": "Develop negotiation, presentation, and media literacy skills for business across the MENA region."
+      },
+      {
+        "id": "russian-starter",
+        "language": "russian",
+        "title": "Russian Starter Pack",
+        "emoji": "🇷🇺",
+        "duration": "8 weeks",
+        "level": "Beginner",
+        "description": "Speak confidently with Cyrillic fundamentals, travel dialogues, and cultural etiquette insights."
+      },
+      {
+        "id": "russian-advanced",
+        "language": "russian",
+        "title": "Russian Conversation Studio",
+        "emoji": "🪆",
+        "duration": "14 weeks",
+        "level": "Advanced",
+        "description": "Sharpen idioms, storytelling, and professional vocabulary with debate sessions and media critiques."
+      },
+      {
+        "id": "english-global",
+        "language": "mixed",
+        "title": "English for Global Teams",
+        "emoji": "🇬🇧",
+        "duration": "9 weeks",
+        "level": "Intermediate",
+        "description": "Collaborate with international colleagues through project-based speaking labs and writing clinics."
+      },
+      {
+        "id": "trio-passport",
+        "language": "mixed",
+        "title": "Trilingual Passport",
+        "emoji": "🛫",
+        "duration": "16 weeks",
+        "level": "All levels",
+        "description": "Blend Arabic, Russian, and English coaching with rotating native mentors and cultural exchange nights."
+      }
+    ],
+    "enroll": "Enroll"
+  },
+  "testimonials": {
+    "title": "Voices of Our Students",
+    "subtitle": "Real stories from professionals, families, and explorers learning with SA Online School.",
+    "items": [
+      {
+        "name": "Lina Haddad",
+        "country": "Jordan",
+        "quote": "SA Online School helped me lead bilingual workshops with confidence. Lessons feel like conversations with friends.",
+        "rating": "★★★★★"
+      },
+      {
+        "name": "Marcus Chen",
+        "country": "Singapore",
+        "quote": "My Russian tutor understands the tech world and tailored sessions around my product demos. The growth was immediate.",
+        "rating": "★★★★★"
+      },
+      {
+        "name": "Anastasia Petrova",
+        "country": "Russia",
+        "quote": "English coaching with Sarah was transformative. I now facilitate global meetings without hesitation.",
+        "rating": "★★★★★"
+      },
+      {
+        "name": "Omar Al-Mansoor",
+        "country": "UAE",
+        "quote": "The Trilingual Passport connected me with mentors across three cultures. It's more than lessons—it's a community.",
+        "rating": "★★★★★"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Tuition tailored to your location",
+    "subtitle": "Transparent monthly plans with access to all live sessions, materials, and progress reviews.",
+    "badge": "Popular",
+    "plans": [
+      {
+        "id": "egypt",
+        "name": "Egypt",
+        "price": "$120",
+        "period": "/ month",
+        "description": "Ideal for students based in Egypt and North Africa.",
+        "features": [
+          "Weekly live classes",
+          "Community events",
+          "Homework reviews"
+        ]
+      },
+      {
+        "id": "russia",
+        "name": "Russia",
+        "price": "₽9,500",
+        "period": "/ month",
+        "description": "Perfect for residents across Russia and Central Asia.",
+        "features": [
+          "Hybrid lesson formats",
+          "Conversation clubs",
+          "Progress diagnostics"
+        ],
+        "highlighted": true
+      },
+      {
+        "id": "global",
+        "name": "Global",
+        "price": "$220",
+        "period": "/ month",
+        "description": "Designed for expats and multinational teams worldwide.",
+        "features": [
+          "On-demand rescheduling",
+          "Cross-cultural coaching",
+          "Quarterly fluency reports"
+        ]
+      }
+    ],
+    "cta": "Choose Plan"
+  },
+  "rules": {
+    "title": "School Rules & Learning Agreement",
+    "description": "We keep our learning space respectful, responsive, and reliable. Please review before your first lesson.",
+    "sections": [
+      {
+        "title": "Attendance",
+        "content": "Please inform your teacher 12 hours before any absence. Two no-shows per term trigger a scheduling review."
+      },
+      {
+        "title": "Refunds",
+        "content": "Unused sessions are refundable within 14 days of purchase. Completed lessons are non-refundable but transferable."
+      },
+      {
+        "title": "Communication",
+        "content": "We coordinate primarily via WhatsApp and email. Please reply within 24 hours so we can adapt lessons in time."
+      },
+      {
+        "title": "Learning Tools",
+        "content": "Lessons are hosted on Zoom with collaborative boards and shared documents. Keep materials handy for continuity."
+      }
+    ],
+    "acknowledgement": "I have read and agree to the School Rules.",
+    "agree": "I Agree",
+    "agreed": "Agreement saved",
+    "viewPolicy": "Read full policy"
+  },
+  "contact": {
+    "title": "Start a conversation with our team",
+    "subtitle": "Tell us what you want to achieve and we'll match you with the right teacher.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Your message",
+      "submit": "Send message"
+    },
+    "success": "Message sent successfully 🎉",
+    "details": {
+      "whatsapp": "WhatsApp",
+      "telegram": "Telegram",
+      "email": "Email"
+    },
+    "links": {
+      "whatsappNumber": "+971 55 000 0000",
+      "telegramHandle": "@saonlineschool",
+      "emailAddress": "hello@saonlineschool.com"
+    }
+  },
+  "policy": {
+    "title": "School Policy",
+    "intro": "Our policy keeps learning joyful, respectful, and transparent for every student and teacher.",
+    "sections": [
+      {
+        "title": "Booking & Scheduling",
+        "content": "Bookings close 6 hours before class. Emergency reschedules are handled through your teacher directly."
+      },
+      {
+        "title": "Code of Conduct",
+        "content": "We celebrate diversity. Harassment, hate speech, or disrespectful behavior leads to immediate account review."
+      },
+      {
+        "title": "Privacy",
+        "content": "All recordings and shared files remain confidential and are deleted within 60 days unless you request otherwise."
+      }
+    ],
+    "back": "Back to home"
+  },
+  "footer": {
+    "links": {
+      "home": "Home",
+      "courses": "Courses",
+      "pricing": "Pricing",
+      "policy": "Policy",
+      "contact": "Contact"
+    },
+    "credit": "Created by Salama Malek — Full-Stack Developer | React | TypeScript | Node.js",
+    "copyright": "© 2025 SA Online School. All rights reserved."
+  }
+}
