@@ -36,6 +36,18 @@
     direction: ltr;
   }
 
+  body.font-en {
+    @apply font-en tracking-normal leading-relaxed;
+  }
+
+  body.font-ru {
+    @apply font-ru tracking-normal leading-relaxed;
+  }
+
+  body.font-ar {
+    @apply font-ar tracking-tight leading-loose;
+  }
+
   body.rtl * {
     text-align: right;
   }
