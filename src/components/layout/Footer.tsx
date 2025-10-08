@@ -3,9 +3,8 @@ import { RouterLink } from "../../hooks/useRouter";
 
 export const Footer = () => {
   const { translate } = useLanguage();
-  const links = translate<{ home: string; courses: string; pricing: string; policy: string; contact: string }>(
-    "footer.links"
-  );
+  const links = translate<{ home: string; courses: string; policy: string; contact: string }>("footer.links");
+  const social = translate<{ label: string; href: string }[]>("footer.social");
 
   return (
     <footer className="border-t border-white/20 bg-white/50 backdrop-blur dark:border-slate-700/40 dark:bg-slate-900/60">
@@ -18,15 +17,19 @@ export const Footer = () => {
             <a href="#courses" className="hover:text-cyan-500">
               {links.courses}
             </a>
-            <a href="#pricing" className="hover:text-cyan-500">
-              {links.pricing}
-            </a>
             <RouterLink to="/policy" className="hover:text-cyan-500">
               {links.policy}
             </RouterLink>
             <a href="#contact" className="hover:text-cyan-500">
               {links.contact}
             </a>
+          </div>
+          <div className="flex flex-wrap gap-3 text-xs normal-case text-slate-500 dark:text-slate-400">
+            {social.map((item) => (
+              <a key={item.href} href={item.href} className="hover:text-cyan-500" target="_blank" rel="noreferrer">
+                {item.label}
+              </a>
+            ))}
           </div>
         </div>
         <p className="text-sm text-slate-500 dark:text-slate-400">{translate("footer.credit")}</p>
