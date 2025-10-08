@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap");
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --surface-light: 255 255 255;
+    --surface-dark: 15 23 42;
+    --panel-light: 248 250 252;
+    --panel-dark: 30 41 59;
+    --text-light: 15 23 42;
+    --text-dark: 226 232 240;
+    scroll-behavior: smooth;
+  }
+
+  html {
+    min-height: 100%;
+  }
+
+  body {
+    background: rgb(var(--surface-light));
+    color: rgb(var(--text-light));
+    font-family: "Source Sans 3", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: color 0.3s ease-out, background-color 0.3s ease-out;
+  }
+
+  body[data-theme="dark"] {
+    background: rgb(var(--surface-dark));
+    color: rgb(var(--text-dark));
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: rgb(15 23 42);
+    font-family: "Inter", "Source Sans 3", ui-sans-serif, system-ui;
+    transition: color 0.3s ease-out;
+  }
+
+  body[data-theme="dark"] h1,
+  body[data-theme="dark"] h2,
+  body[data-theme="dark"] h3,
+  body[data-theme="dark"] h4,
+  body[data-theme="dark"] h5,
+  body[data-theme="dark"] h6 {
+    color: rgb(226 232 240);
+  }
+
+  ::selection {
+    background-color: rgba(103, 232, 249, 0.6);
+    color: rgb(15 23 42);
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.gradient-ring {
+  background:
+    radial-gradient(circle at top, rgba(34, 211, 238, 0.35), transparent 55%),
+    radial-gradient(circle at bottom, rgba(129, 140, 248, 0.35), transparent 60%);
+}
