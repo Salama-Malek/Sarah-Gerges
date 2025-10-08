@@ -5,277 +5,301 @@
     { "code": "ar", "label": "العربية" }
   ],
   "brand": "SA Online School",
+  "meta": {
+    "homeTitle": "SA Online School — Learn Arabic, English & Russian Online with Native Teachers",
+    "homeDescription": "SA Online School offers Arabic, English, and Russian lessons online with certified native teachers, flexible schedules, and tailored exam preparation for students worldwide.",
+    "policyTitle": "SA Online School — Lesson Policy & Learning Agreement",
+    "policyDescription": "School Rules & Learning Agreement for SA Online School students."
+  },
   "nav": {
     "home": "Home",
-    "features": "Why Us",
-    "about": "Founder",
+    "mission": "Mission",
+    "about": "Teacher",
     "courses": "Courses",
-    "testimonials": "Testimonials",
-    "pricing": "Pricing",
-    "rules": "Rules",
+    "rules": "Policy",
     "contact": "Contact"
   },
   "hero": {
-    "eyebrow": "Learn Languages, Connect Worlds",
-    "title": "Learn Arabic, Russian, and English from passionate native teachers.",
-    "subtitle": "Interactive online lessons for every age and level.",
+    "eyebrow": "Online Language Mastery",
+    "title": "Learn Arabic, English & Russian Online — Anytime, Anywhere.",
+    "subtitle": "Live lessons with certified native teachers, flexible scheduling, and tailored study plans for every learner and educator.",
     "primaryCta": "Start Learning",
     "secondaryCta": "Contact Us",
-    "scrollHint": "Scroll to explore"
+    "scrollHint": "Scroll to discover SA Online School"
   },
-  "features": {
-    "title": "Why SA Online School?",
-    "subtitle": "A studio of native-speaking educators building confidence through conversation, culture, and care.",
-    "items": [
+  "mission": {
+    "title": "Online Language School for Real-World Fluency",
+    "subtitle": "Flexible online language school supporting conversational skills, exam preparation, and confident communication abroad.",
+    "description": "We follow a systematic methodology that blends reading strategies, conversation drills, and comprehension coaching so progress feels structured and sustainable.",
+    "pillars": [
       {
-        "title": "Personalized Learning Path",
-        "description": "We craft adaptive roadmaps that respect your pace, goals, and preferred learning style."
+        "title": "Reading & Culture",
+        "description": "Decode academic texts, everyday signage, and cultural references through guided reading labs and vocabulary mapping."
       },
       {
-        "title": "Native Certified Teachers",
-        "description": "Work with experienced educators who teach from lived cultural context and professional expertise."
+        "title": "Speaking with Confidence",
+        "description": "Rehearse real-life conversations, pronunciation, and classroom scenarios to lead discussions and adapt overseas."
       },
       {
-        "title": "Flexible Schedules",
-        "description": "Schedule sessions that harmonize with your work, family, and travel commitments across time zones."
-      },
-      {
-        "title": "One-on-One or Group Lessons",
-        "description": "Choose intimate mentoring or collaborative classes to practice in real-world scenarios."
+        "title": "Listening & Comprehension",
+        "description": "Train your ear with authentic audio, exam simulations, and feedback that turns complex input into actionable language skills."
       }
     ],
     "stats": [
-      {
-        "label": "Learners supported",
-        "value": "500+"
-      },
-      {
-        "label": "Years of teaching",
-        "value": "6"
-      }
+      { "label": "Exam pass rate improvement", "value": "+40%" },
+      { "label": "Student engagement boost", "value": "+30%" },
+      { "label": "Years of international teaching", "value": "6+" }
     ]
   },
   "about": {
     "title": "Meet Sarah Gerges",
-    "body": "Sarah founded SA Online School to make language learning deeply human and accessible. Raised between Alexandria, Moscow, and Toronto, she believes languages are bridges that connect stories and careers. With a background in linguistics and educational leadership, Sarah leads a community of teachers who mentor students with patience, warmth, and strategic clarity.",
-    "highlight": "We teach you to listen bravely, speak confidently, and belong anywhere."
+    "lead": "Teacher Coach • Linguist • Curriculum Designer",
+    "paragraphs": [
+      "I am Sarah Gerges, a bilingual English and Arabic educator who has shaped classrooms across Russia and Egypt for more than six years.",
+      "From university lecture halls in Tyumen to online mentorship programs in Alexandria, I translate theory into practical classroom strategies for learners and teachers alike.",
+      "My lessons blend intercultural awareness with clear frameworks that help students pass exams, settle abroad, and collaborate globally.",
+      "Now I coach teachers to build dynamic lesson plans, solve classroom challenges, and lead with confidence—while supporting learners on their multilingual journeys."
+    ],
+    "credentialsTitle": "Credentials & Impact",
+    "credentials": [
+      "Master’s degree in Linguistics (Ph.D. in progress)",
+      "Bachelor’s degree in Education",
+      "6+ years teaching students in Russia and Egypt",
+      "40% increase in exam pass rates for partner schools",
+      "30% growth in student participation through interactive materials"
+    ],
+    "connectTitle": "Connect with Sarah",
+    "links": [
+      { "label": "Email", "href": "mailto:sarahnadynakhla@gmail.com", "value": "sarahnadynakhla@gmail.com" },
+      { "label": "Telegram", "href": "https://t.me/+79526891253", "value": "+7 952 689 12 53" },
+      { "label": "Instagram", "href": "https://www.instagram.com/sarahnadyn.gerges/", "value": "@sarahnadyn.gerges" },
+      { "label": "YouTube", "href": "https://www.youtube.com/@SAonlineschool", "value": "@SAonlineschool" },
+      { "label": "VK", "href": "https://vk.com/saonlineschool", "value": "vk.com/saonlineschool" }
+    ],
+    "cta": "Join my lessons and start your journey."
   },
   "courses": {
-    "title": "Courses designed for global citizens",
-    "subtitle": "From survival phrases to professional fluency, discover pathways that grow with you.",
-    "filters": [
-      { "key": "arabic", "label": "Arabic" },
-      { "key": "russian", "label": "Russian" },
-      { "key": "mixed", "label": "Mixed" }
-    ],
-    "items": [
+    "title": "Courses tailored to your region",
+    "subtitle": "Arabic lessons online, English teacher online, and Russian support for foreigners with transparent pricing.",
+    "nativeNote": "All lessons are delivered by certified native-speaker teachers",
+    "cta": "Book a Trial",
+    "comingSoon": "Pre-recorded courses coming soon.",
+    "groups": [
       {
-        "id": "arabic-foundations",
-        "language": "arabic",
-        "title": "Arabic Foundations",
-        "emoji": "🇪🇬",
-        "duration": "12 weeks",
-        "level": "Beginner",
-        "description": "Master reading, writing, and speaking essentials with Egyptian and Levantine dialect spotlights."
+        "region": "Russia & CIS",
+        "audience": "Residents of Russia and the CIS",
+        "note": "One-on-one Arabic and English coaching with native speakers. Choose the duration that fits your goals and schedule.",
+        "courses": [
+          {
+            "language": "Arabic language",
+            "duration": "45-minute lesson",
+            "price": "1500 ₽",
+            "description": "Personalized Arabic tutoring that builds conversation, grammar, and exam readiness with a native teacher."
+          },
+          {
+            "language": "Arabic language",
+            "duration": "60-minute lesson",
+            "price": "1800 ₽",
+            "description": "Extended Arabic coaching for relocation prep, university study, or professional communication with a native mentor."
+          },
+          {
+            "language": "English language",
+            "duration": "30-minute lesson",
+            "price": "1000 ₽",
+            "description": "Focused English session with a certified native teacher—perfect for quick progress between classes."
+          },
+          {
+            "language": "English language",
+            "duration": "45-minute lesson",
+            "price": "1400 ₽",
+            "description": "Balanced English lesson covering speaking, listening, and grammar for exams or workplace fluency."
+          },
+          {
+            "language": "English language",
+            "duration": "60-minute lesson",
+            "price": "1800 ₽",
+            "description": "In-depth English tutoring tailored to academic writing, interviews, or international presentations."
+          }
+        ]
       },
       {
-        "id": "arabic-professional",
-        "language": "arabic",
-        "title": "Arabic for Professionals",
-        "emoji": "🌍",
-        "duration": "10 weeks",
-        "level": "Intermediate",
-        "description": "Develop negotiation, presentation, and media literacy skills for business across the MENA region."
+        "region": "Egypt",
+        "audience": "Residents of Egypt",
+        "note": "Flexible English lessons online with an experienced native-speaker teacher supporting school, university, and career goals.",
+        "courses": [
+          {
+            "language": "English language",
+            "duration": "30-minute lesson",
+            "price": "100 EGP",
+            "description": "Short, high-impact English lesson to sharpen pronunciation and vocabulary with a native coach."
+          },
+          {
+            "language": "English language",
+            "duration": "45-minute lesson",
+            "price": "130 EGP",
+            "description": "Comprehensive English practice that strengthens listening, speaking, and grammar for daily life."
+          },
+          {
+            "language": "English language",
+            "duration": "60-minute lesson",
+            "price": "150 EGP",
+            "description": "Full English session for exam preparation, professional writing, and confidence in international settings."
+          }
+        ]
       },
       {
-        "id": "russian-starter",
-        "language": "russian",
-        "title": "Russian Starter Pack",
-        "emoji": "🇷🇺",
-        "duration": "8 weeks",
-        "level": "Beginner",
-        "description": "Speak confidently with Cyrillic fundamentals, travel dialogues, and cultural etiquette insights."
-      },
-      {
-        "id": "russian-advanced",
-        "language": "russian",
-        "title": "Russian Conversation Studio",
-        "emoji": "🪆",
-        "duration": "14 weeks",
-        "level": "Advanced",
-        "description": "Sharpen idioms, storytelling, and professional vocabulary with debate sessions and media critiques."
-      },
-      {
-        "id": "english-global",
-        "language": "mixed",
-        "title": "English for Global Teams",
-        "emoji": "🇬🇧",
-        "duration": "9 weeks",
-        "level": "Intermediate",
-        "description": "Collaborate with international colleagues through project-based speaking labs and writing clinics."
-      },
-      {
-        "id": "trio-passport",
-        "language": "mixed",
-        "title": "Trilingual Passport",
-        "emoji": "🛫",
-        "duration": "16 weeks",
-        "level": "All levels",
-        "description": "Blend Arabic, Russian, and English coaching with rotating native mentors and cultural exchange nights."
-      }
-    ],
-    "enroll": "Enroll"
-  },
-  "testimonials": {
-    "title": "Voices of Our Students",
-    "subtitle": "Real stories from professionals, families, and explorers learning with SA Online School.",
-    "items": [
-      {
-        "name": "Lina Haddad",
-        "country": "Jordan",
-        "quote": "SA Online School helped me lead bilingual workshops with confidence. Lessons feel like conversations with friends.",
-        "rating": "★★★★★"
-      },
-      {
-        "name": "Marcus Chen",
-        "country": "Singapore",
-        "quote": "My Russian tutor understands the tech world and tailored sessions around my product demos. The growth was immediate.",
-        "rating": "★★★★★"
-      },
-      {
-        "name": "Anastasia Petrova",
-        "country": "Russia",
-        "quote": "English coaching with Sarah was transformative. I now facilitate global meetings without hesitation.",
-        "rating": "★★★★★"
-      },
-      {
-        "name": "Omar Al-Mansoor",
-        "country": "UAE",
-        "quote": "The Trilingual Passport connected me with mentors across three cultures. It's more than lessons—it's a community.",
-        "rating": "★★★★★"
+        "region": "Russians in Egypt",
+        "audience": "Russian-speaking residents living in Egypt",
+        "note": "Arabic lessons online with native Egyptian teachers to support everyday life, study, and work abroad.",
+        "courses": [
+          {
+            "language": "Arabic language",
+            "duration": "30-minute lesson",
+            "price": "150 EGP",
+            "description": "Introductory Arabic lesson focusing on survival phrases, listening, and pronunciation with a native tutor."
+          },
+          {
+            "language": "Arabic language",
+            "duration": "45-minute lesson",
+            "price": "180 EGP",
+            "description": "Conversational Arabic coaching that bridges classroom theory with real-life communication in Egypt."
+          },
+          {
+            "language": "Arabic language",
+            "duration": "60-minute lesson",
+            "price": "200 EGP",
+            "description": "Immersive Arabic training for advanced comprehension, exam prep, and professional collaboration."
+          }
+        ]
       }
     ]
   },
-  "pricing": {
-    "title": "Tuition tailored to your location",
-    "subtitle": "Transparent monthly plans with access to all live sessions, materials, and progress reviews.",
-    "badge": "Popular",
-    "plans": [
-      {
-        "id": "egypt",
-        "name": "Egypt",
-        "price": "$120",
-        "period": "/ month",
-        "description": "Ideal for students based in Egypt and North Africa.",
-        "features": [
-          "Weekly live classes",
-          "Community events",
-          "Homework reviews"
-        ]
-      },
-      {
-        "id": "russia",
-        "name": "Russia",
-        "price": "₽9,500",
-        "period": "/ month",
-        "description": "Perfect for residents across Russia and Central Asia.",
-        "features": [
-          "Hybrid lesson formats",
-          "Conversation clubs",
-          "Progress diagnostics"
-        ],
-        "highlighted": true
-      },
-      {
-        "id": "global",
-        "name": "Global",
-        "price": "$220",
-        "period": "/ month",
-        "description": "Designed for expats and multinational teams worldwide.",
-        "features": [
-          "On-demand rescheduling",
-          "Cross-cultural coaching",
-          "Quarterly fluency reports"
-        ]
-      }
-    ],
-    "cta": "Choose Plan"
-  },
   "rules": {
-    "title": "School Rules & Learning Agreement",
-    "description": "We keep our learning space respectful, responsive, and reliable. Please review before your first lesson.",
+    "title": "Lesson Policy & Learning Agreement",
+    "description": "Please review our lesson policy covering payments, scheduling, cancellations, attendance, and teacher substitutions.",
     "sections": [
       {
-        "title": "Attendance",
-        "content": "Please inform your teacher 12 hours before any absence. Two no-shows per term trigger a scheduling review."
+        "title": "Payments & Scheduling",
+        "content": [
+          "Tuition is paid online through Russian bank cards or approved international services directly in your personal account.",
+          "Lessons scheduled for the following day must be paid no later than 21:00 Moscow time; unpaid sessions will be released to other learners.",
+          "Maintain a positive balance by paying for several lessons in advance so your reserved timeslot remains protected."
+        ]
       },
       {
-        "title": "Refunds",
-        "content": "Unused sessions are refundable within 14 days of purchase. Completed lessons are non-refundable but transferable."
+        "title": "Cancellations & Rescheduling",
+        "content": [
+          "Notify your teacher in the study chat with @mention at least 24 hours in advance if you need to adjust your regular schedule.",
+          "You may reschedule or cancel up to three lessons per calendar month with two hours’ notice; beyond that, the lesson fee is deducted.",
+          "Same-day changes are granted at the teacher’s discretion based on availability and workload."
+        ]
       },
       {
-        "title": "Communication",
-        "content": "We coordinate primarily via WhatsApp and email. Please reply within 24 hours so we can adapt lessons in time."
+        "title": "Attendance & Lateness",
+        "content": [
+          "If you are more than 15 minutes late without notice, the session is marked as completed because the teacher remained in the classroom.",
+          "When you inform the teacher of a delay within the first 15 minutes, the lesson continues but still ends at the scheduled time."
+        ]
       },
       {
-        "title": "Learning Tools",
-        "content": "Lessons are hosted on Zoom with collaborative boards and shared documents. Keep materials handy for continuity."
+        "title": "Study Breaks",
+        "content": [
+          "Breaks of up to two weeks keep your balance and timeslot safe when you notify the teacher in the study chat before 21:00 the day prior.",
+          "For pauses longer than two weeks, we will offer alternative times when you return because the original slot may be assigned to another learner.",
+          "Official public holidays in your country may be observed when you inform us in advance."
+        ]
+      },
+      {
+        "title": "Teacher Changes",
+        "content": [
+          "If a teacher becomes unavailable due to illness or unforeseen events, we will inform you promptly and offer a suitable replacement when possible.",
+          "Repeated cancellations or unpaid balances may result in schedule adjustments so that teachers can support active students." 
+        ]
       }
     ],
-    "acknowledgement": "I have read and agree to the School Rules.",
-    "agree": "I Agree",
+    "acknowledgement": "I have read and agree to the SA Online School lesson policy.",
+    "agree": "I agree",
     "agreed": "Agreement saved",
-    "viewPolicy": "Read full policy"
-  },
-  "contact": {
-    "title": "Start a conversation with our team",
-    "subtitle": "Tell us what you want to achieve and we'll match you with the right teacher.",
-    "form": {
-      "name": "Name",
-      "email": "Email",
-      "message": "Your message",
-      "submit": "Send message"
-    },
-    "success": "Message sent successfully 🎉",
-    "details": {
-      "whatsapp": "WhatsApp",
-      "telegram": "Telegram",
-      "email": "Email"
-    },
-    "links": {
-      "whatsappNumber": "+971 55 000 0000",
-      "telegramHandle": "@saonlineschool",
-      "emailAddress": "hello@saonlineschool.com"
-    }
+    "viewPolicy": "View full policy"
   },
   "policy": {
-    "title": "School Policy",
-    "intro": "Our policy keeps learning joyful, respectful, and transparent for every student and teacher.",
+    "title": "SA Online School — Lesson Policy",
+    "intro": "These terms explain how we manage payments, scheduling, lesson cancellations, and teacher substitutions so every learner receives consistent support.",
     "sections": [
       {
-        "title": "Booking & Scheduling",
-        "content": "Bookings close 6 hours before class. Emergency reschedules are handled through your teacher directly."
+        "title": "Payments & Scheduling",
+        "content": [
+          "Lessons are paid online through Russian bank cards or verified international services. Funds typically appear instantly in your personal account.",
+          "Sessions planned for the next day must be paid by 21:00 Moscow time. Unpaid lessons are released to other students even if payment arrives later.",
+          "Keeping a positive balance signals your intention to continue. We recommend purchasing multiple lessons in advance to secure your preferred schedule."
+        ]
       },
       {
-        "title": "Code of Conduct",
-        "content": "We celebrate diversity. Harassment, hate speech, or disrespectful behavior leads to immediate account review."
+        "title": "Cancellations & Rescheduling",
+        "content": [
+          "To adjust your regular timetable, message the teacher in the study chat with an @mention at least 24 hours before the affected lesson.",
+          "Each student may cancel or reschedule up to three lessons per calendar month for any reason when at least two hours’ notice is provided in the study chat.",
+          "If you exceed three adjustments in a month, the cost of each additional missed lesson is deducted from your balance or the slot is reassigned when the balance is zero."
+        ]
       },
       {
-        "title": "Privacy",
-        "content": "All recordings and shared files remain confidential and are deleted within 60 days unless you request otherwise."
+        "title": "Attendance & Lateness",
+        "content": [
+          "When you request a same-day change, the teacher will confirm availability based on their workload and personal plans.",
+          "If you do not join within 15 minutes and do not contact the teacher, the lesson is considered completed. Informing the teacher within those 15 minutes keeps the lesson active but it still ends at the original time."
+        ]
+      },
+      {
+        "title": "Study Breaks",
+        "content": [
+          "Short breaks under two weeks keep your balance and timeslot reserved when you notify the teacher by 21:00 the day before your next lesson.",
+          "Breaks longer than two weeks may require a new schedule. Share your return date so we can coordinate with the teacher and reserve a suitable slot.",
+          "Classes may be paused during official public holidays in your location when you inform us in advance."
+        ]
+      },
+      {
+        "title": "Teacher Changes & School Decisions",
+        "content": [
+          "Teachers rarely cancel, but in case of illness or emergencies we will alert you in the study chat and offer an alternative time or teacher if available.",
+          "Frequent cancellations or unpaid lessons may lead to a temporary suspension so that the teacher’s schedule remains available for active students."
+        ]
       }
     ],
     "back": "Back to home"
+  },
+  "contact": {
+    "title": "Contact SA Online School",
+    "subtitle": "Message us in English, Arabic, or Russian — we respond within 24 hours.",
+    "invitation": "Choose the channel you prefer and tell us about your goals. We will share the best study plan, teacher match, and next steps within one business day.",
+    "channels": [
+      { "label": "WhatsApp", "value": "+7 952 689 12 53", "href": "https://wa.me/79526891253" },
+      { "label": "Telegram", "value": "+7 952 689 12 53", "href": "https://t.me/+79526891253" },
+      { "label": "Email", "value": "sarahnadynakhla@gmail.com", "href": "mailto:sarahnadynakhla@gmail.com" },
+      { "label": "Instagram", "value": "@sarahnadyn.gerges", "href": "https://www.instagram.com/sarahnadyn.gerges/" },
+      { "label": "VK", "value": "vk.com/saonlineschool", "href": "https://vk.com/saonlineschool" },
+      { "label": "YouTube", "value": "@SAonlineschool", "href": "https://www.youtube.com/@SAonlineschool" }
+    ],
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "How can we help?",
+      "submit": "Send Message"
+    },
+    "success": "Thank you! Your message is on its way to our team."
   },
   "footer": {
     "links": {
       "home": "Home",
       "courses": "Courses",
-      "pricing": "Pricing",
       "policy": "Policy",
       "contact": "Contact"
     },
-    "credit": "Created by Salama Malek — Full-Stack Developer | React | TypeScript | Node.js",
-    "copyright": "© 2025 SA Online School. All rights reserved."
+    "social": [
+      { "label": "Instagram", "href": "https://www.instagram.com/sarahnadyn.gerges/" },
+      { "label": "VK", "href": "https://vk.com/saonlineschool" },
+      { "label": "YouTube", "href": "https://www.youtube.com/@SAonlineschool" }
+    ],
+    "credit": "Created by Salama Malek — Full-Stack Developer · React | TypeScript | Node.js",
+    "copyright": "© 2025 SA Online School · All Rights Reserved."
   }
 }

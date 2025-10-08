@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 interface AccordionItem {
   id: string;
   title: string;
-  content: string;
+  content: string[];
 }
 
 interface AccordionProps {
@@ -39,7 +39,13 @@ export const Accordion = ({ items }: AccordionProps) => {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                   className="overflow-hidden"
                 >
-                  <div className="pb-4 text-base leading-relaxed text-slate-600 dark:text-slate-300">{item.content}</div>
+                  <div className="pb-4 text-base leading-relaxed text-slate-600 dark:text-slate-300">
+                    {item.content.map((paragraph) => (
+                      <p key={paragraph} className="mb-4 last:mb-0">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 </motion.div>
               ) : null}
             </AnimatePresence>
