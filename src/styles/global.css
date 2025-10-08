@@ -5,15 +5,26 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  }
+
   :root {
     color-scheme: light;
-    --surface-light: 255 255 255;
-    --surface-dark: 15 23 42;
-    --panel-light: 248 250 252;
-    --panel-dark: 30 41 59;
-    --text-light: 15 23 42;
-    --text-dark: 226 232 240;
+    --px-bg: theme("colors.background.light");
+    --px-surface: theme("colors.surface.light");
+    --px-text: theme("colors.text.light");
+    --px-text-muted: theme("colors.text.mutedLight");
     scroll-behavior: smooth;
+  }
+
+  body[data-theme="dark"],
+  .dark {
+    color-scheme: dark;
+    --px-bg: theme("colors.background.dark");
+    --px-surface: theme("colors.surface.dark");
+    --px-text: theme("colors.text.dark");
+    --px-text-muted: theme("colors.text.mutedDark");
   }
 
   html {
@@ -21,11 +32,11 @@
   }
 
   body {
-    @apply bg-white text-slate-900 antialiased transition-colors duration-300 ease-out;
+    @apply antialiased transition-colors duration-300 ease-out;
     font-family: "Source Sans 3", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: rgb(var(--surface-light));
-    color: rgb(var(--text-light));
-    transition: all 0.3s ease-in-out;
+    background-color: var(--px-bg);
+    color: var(--px-text);
+    transition: all 0.3s ease;
   }
 
   html[dir="rtl"] body {
@@ -56,12 +67,6 @@
     text-align: left;
   }
 
-  body[data-theme="dark"] {
-    @apply text-slate-100;
-    background: rgb(var(--surface-dark));
-    color: rgb(var(--text-dark));
-  }
-
   h1,
   h2,
   h3,
@@ -69,31 +74,31 @@
   h5,
   h6 {
     font-family: inherit;
-    @apply text-slate-900 dark:text-slate-100;
+    @apply text-gray-900 dark:text-slate-100;
   }
 
   ::selection {
-    @apply bg-cyan-300/60 text-slate-900;
+    @apply bg-accent/40 text-gray-900;
   }
 }
 
 @layer components {
   .glass-panel {
-    @apply rounded-3xl border border-white/10 bg-white/60 backdrop-blur-xl shadow-lg shadow-slate-900/5 transition-colors duration-300 ease-out dark:border-slate-700/60 dark:bg-slate-800/60 dark:shadow-slate-900/40;
+    @apply rounded-3xl border border-border-light/60 bg-surface-light/80 backdrop-blur-xl shadow-lg shadow-slate-900/5 transition-colors duration-300 ease-out dark:border-border-dark/60 dark:bg-surface-dark/80 dark:shadow-slate-900/40;
   }
 
   .gradient-ring {
     background:
-      radial-gradient(circle at top, rgba(34, 211, 238, 0.35), transparent 55%),
-      radial-gradient(circle at bottom, rgba(129, 140, 248, 0.35), transparent 60%);
+      radial-gradient(circle at top, rgba(34, 211, 238, 0.25), transparent 55%),
+      radial-gradient(circle at bottom, rgba(129, 140, 248, 0.25), transparent 60%);
   }
 
   .section-heading {
-    @apply text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-white;
+    @apply text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100;
   }
 
   .section-subheading {
-    @apply mt-3 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300;
+    @apply mt-3 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-slate-300;
   }
 }
 
@@ -103,14 +108,10 @@
   }
 
   .bg-surface {
-    background: rgb(var(--surface-light));
+    background: var(--px-surface);
   }
 
-  body[data-theme="dark"] .bg-surface {
-    background: rgb(var(--surface-dark));
-  }
-
-  body[data-theme="dark"] .glass-border {
-    box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.2);
+  .text-muted {
+    color: var(--px-text-muted);
   }
 }

@@ -37,12 +37,12 @@ export const Testimonials = () => {
               hoverGlow
               className="min-w-[280px] max-w-sm flex-1 p-8 text-start [dir='rtl']:text-end"
             >
-              <div className="flex items-center justify-between text-sm font-semibold text-cyan-500 [dir='rtl']:flex-row-reverse">
+              <div className="flex items-center justify-between text-sm font-semibold text-accent [dir='rtl']:flex-row-reverse">
                 <span>{item.rating}</span>
                 <span>{item.country}</span>
               </div>
-              <p className="mt-6 text-start text-base leading-relaxed text-slate-600 dark:text-slate-300 [dir='rtl']:text-end">“{item.quote}”</p>
-              <p className="mt-8 text-start text-lg font-semibold text-slate-900 dark:text-white [dir='rtl']:text-end">{item.name}</p>
+              <p className="mt-6 text-start text-base leading-relaxed text-gray-700 dark:text-slate-300 [dir='rtl']:text-end">“{item.quote}”</p>
+              <p className="mt-8 text-start text-lg font-semibold text-gray-900 dark:text-slate-100 [dir='rtl']:text-end">{item.name}</p>
             </Card>
           ))}
         </motion.div>

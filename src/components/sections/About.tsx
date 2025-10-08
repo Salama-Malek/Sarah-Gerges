@@ -11,10 +11,14 @@ export const About = () => {
   const cta = translate("about.cta");
 
   return (
-    <SectionContainer id="about" className="relative" background="about">
-      <div className="pointer-events-none absolute inset-0 -z-10 gradient-ring opacity-70 dark:opacity-40" />
+    <SectionContainer
+      id="about"
+      className="relative rounded-[3rem] bg-[#f8fafc] shadow-[0_50px_120px_-70px_rgba(15,23,42,0.45)] dark:bg-[#111c30]"
+      background="about"
+    >
+      <div className="pointer-events-none absolute inset-0 -z-10 gradient-ring opacity-60 dark:opacity-30" />
       <motion.div
-        className="grid gap-10 rounded-3xl bg-white/70 p-10 shadow-xl shadow-slate-900/10 backdrop-blur-lg dark:bg-slate-900/70 md:grid-cols-[minmax(0,2fr)_minmax(0,1.1fr)]"
+        className="grid gap-10 rounded-3xl border border-border-light/80 bg-surface-light/95 p-10 shadow-2xl shadow-slate-900/10 backdrop-blur-lg dark:border-border-dark/70 dark:bg-surface-dark/95 md:grid-cols-[minmax(0,2fr)_minmax(0,1.1fr)]"
         initial={{ opacity: 0, x: isRTL ? 40 : -40 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.4 }}
@@ -24,36 +28,36 @@ export const About = () => {
         <div className={`space-y-6 text-start [dir='rtl']:text-end ${isRTL ? "md:order-2" : "md:order-1"}`}>
           <div>
             <h2 className="section-heading">{translate("about.title")}</h2>
-            <p className="mt-3 text-lg font-semibold text-cyan-600 dark:text-cyan-300">{lead}</p>
+            <p className="mt-3 text-lg font-semibold text-accent dark:text-accent">{lead}</p>
           </div>
           {paragraphs.map((paragraph) => (
-            <p key={paragraph} className="text-lg leading-relaxed text-slate-700 dark:text-slate-200">
+            <p key={paragraph} className="text-lg leading-relaxed text-gray-700 dark:text-slate-200">
               {paragraph}
             </p>
           ))}
-          <div className="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 p-6 text-base text-cyan-700 shadow-sm dark:border-cyan-400/40 dark:bg-cyan-500/10 dark:text-cyan-200 [dir='rtl']:text-end">
+          <div className="rounded-2xl border border-accent/40 bg-accent/10 p-6 text-base text-accent shadow-sm dark:border-accent/40 dark:bg-accent/15 dark:text-accent [dir='rtl']:text-end">
             <p className="font-semibold">{cta}</p>
           </div>
         </div>
         <div
-          className={`flex flex-col gap-8 rounded-2xl border border-white/40 bg-white/70 p-6 shadow-inner dark:border-slate-700/60 dark:bg-slate-900/60 ${isRTL ? "md:order-1" : "md:order-2"}`}
+          className={`flex flex-col gap-8 rounded-2xl border border-border-light bg-surface-light p-6 shadow-inner dark:border-border-dark dark:bg-surface-dark ${isRTL ? "md:order-1" : "md:order-2"}`}
         >
           <div>
-            <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{translate("about.credentialsTitle")}</h3>
-            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300 [dir='rtl']:text-end">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-slate-100">{translate("about.credentialsTitle")}</h3>
+            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-gray-700 dark:text-slate-300 [dir='rtl']:text-end">
               {credentials.map((item) => (
-                <li key={item} className="rounded-xl bg-cyan-500/5 px-4 py-2">
+                <li key={item} className="rounded-xl bg-accent/10 px-4 py-2 text-gray-800 dark:text-slate-200">
                   {item}
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{translate("about.connectTitle")}</h3>
-            <ul className="mt-4 space-y-2 text-sm font-semibold text-cyan-600 dark:text-cyan-300 [dir='rtl']:text-end">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-slate-100">{translate("about.connectTitle")}</h3>
+            <ul className="mt-4 space-y-2 text-sm font-semibold text-accent dark:text-accent [dir='rtl']:text-end">
               {links.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="transition hover:text-indigo-500" target="_blank" rel="noreferrer">
+                  <a href={link.href} className="transition hover:text-accentSecondary" target="_blank" rel="noreferrer">
                     {link.label}: {link.value}
                   </a>
                 </li>

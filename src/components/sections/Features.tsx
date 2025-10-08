@@ -44,11 +44,11 @@ const AnimatedStat = ({
 
   return (
     <div className="text-start [dir='rtl']:text-end" dir={direction}>
-      <p className="text-4xl font-semibold text-slate-900 dark:text-white">
+      <p className="text-4xl font-semibold text-gray-900 dark:text-slate-100">
         {display}
         {suffix}
       </p>
-      <p className="mt-2 text-sm uppercase tracking-widest text-slate-500 dark:text-slate-400">{label}</p>
+      <p className="mt-2 text-sm uppercase tracking-widest text-muted dark:text-slate-400">{label}</p>
     </div>
   );
 };
@@ -73,7 +73,7 @@ export const Features = () => {
       >
         <h2 className="section-heading text-balance">{title}</h2>
         <p className="section-subheading mx-auto text-balance">{subtitle}</p>
-        <p className="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
+        <p className="mt-6 text-base leading-relaxed text-gray-700 dark:text-slate-300">{description}</p>
       </motion.div>
       <div className="mt-12 grid gap-6 md:grid-cols-3" dir={direction}>
         {pillars.map((pillar) => (
@@ -82,10 +82,10 @@ export const Features = () => {
             hoverGlow
             className="flex h-full flex-col gap-4 p-8 text-start [dir='rtl']:text-end"
           >
-            <motion.h3 className="text-2xl font-semibold text-slate-900 dark:text-white" whileHover={{ scale: 1.02 }}>
+            <motion.h3 className="text-2xl font-semibold text-gray-900 dark:text-slate-100" whileHover={{ scale: 1.02 }}>
               {pillar.title}
             </motion.h3>
-            <p className="text-base leading-relaxed text-slate-600 dark:text-slate-300">{pillar.description}</p>
+            <p className="text-base leading-relaxed text-gray-700 dark:text-slate-300">{pillar.description}</p>
           </Card>
         ))}
       </div>
