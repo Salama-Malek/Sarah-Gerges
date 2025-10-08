@@ -6,7 +6,7 @@ export const LangSwitcher = () => {
 
   return (
     <div className="relative">
-      <div className="flex items-center gap-2 rounded-full border border-slate-200/60 bg-white/80 px-3 py-1.5 text-sm font-semibold uppercase text-slate-600 shadow-sm backdrop-blur dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
+      <div className="flex items-center gap-2 rounded-full border border-border-light bg-surface-light/80 px-3 py-1.5 text-sm font-semibold uppercase text-muted shadow-sm backdrop-blur dark:border-border-dark dark:bg-surface-dark/80 dark:text-text-dark">
         {languages.map((option) => (
           <button
             type="button"
@@ -18,7 +18,7 @@ export const LangSwitcher = () => {
             {language === option.code ? (
               <motion.span
                 layoutId="language-pill"
-                className="absolute inset-0 rounded-full bg-cyan-500/20"
+                className="absolute inset-0 rounded-full bg-accent/15"
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             ) : null}
