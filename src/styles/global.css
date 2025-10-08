@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&family=PT+Sans:wght@400;700&family=Source+Sans+3:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -25,6 +25,35 @@
     font-family: "Source Sans 3", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: rgb(var(--surface-light));
     color: rgb(var(--text-light));
+    transition: all 0.3s ease-in-out;
+  }
+
+  html[dir="rtl"] body {
+    direction: rtl;
+  }
+
+  html[dir="ltr"] body {
+    direction: ltr;
+  }
+
+  body.font-en {
+    @apply font-en tracking-normal leading-relaxed;
+  }
+
+  body.font-ru {
+    @apply font-ru tracking-normal leading-relaxed;
+  }
+
+  body.font-ar {
+    @apply font-ar tracking-tight leading-loose;
+  }
+
+  body.rtl * {
+    text-align: right;
+  }
+
+  body.ltr * {
+    text-align: left;
   }
 
   body[data-theme="dark"] {
@@ -39,7 +68,7 @@
   h4,
   h5,
   h6 {
-    font-family: "Inter", "Source Sans 3", ui-sans-serif, system-ui;
+    font-family: inherit;
     @apply text-slate-900 dark:text-slate-100;
   }
 
