@@ -10,7 +10,7 @@ import { RouterLink, useRouter } from "../../hooks/useRouter";
 import { useSectionNavigation } from "../../hooks/useSectionNavigation";
 
 export const Header = () => {
-  const { translate, direction } = useLanguage();
+  const { translate, direction, isRTL } = useLanguage();
   const { path } = useRouter();
   const progress = useScrollProgress();
   const { createClickHandler } = useSectionNavigation();
@@ -32,11 +32,17 @@ export const Header = () => {
   return (
     <header className="fixed inset-x-0 top-0 z-40 flex flex-col items-center">
       <div className="h-1 w-full bg-transparent">
-        <motion.div className="h-1 bg-gradient-to-r from-cyan-400 via-sky-500 to-indigo-500" style={{ scaleX: progress, transformOrigin: "left" }} />
+        <motion.div
+          className="h-1 bg-gradient-to-r from-cyan-400 via-sky-500 to-indigo-500"
+          style={{ scaleX: progress, transformOrigin: isRTL ? "right" : "left" }}
+        />
       </div>
       <nav className="mt-4 w-full px-4">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full border border-white/20 bg-white/70 px-6 py-3 shadow-lg shadow-slate-900/10 backdrop-blur-xl dark:border-slate-700/80 dark:bg-slate-900/80">
-          <a href="/#hero" onClick={createClickHandler("#hero")} className="flex items-center gap-3">
+        <div
+          className="mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full border border-white/20 bg-white/70 px-6 py-3 shadow-lg shadow-slate-900/10 backdrop-blur-xl dark:border-slate-700/80 dark:bg-slate-900/80"
+          dir={direction}
+        >
+          <a href="/#hero" onClick={createClickHandler("#hero")} className="flex items-center gap-3 text-start">
             <span className="text-lg font-semibold text-slate-900 dark:text-white">{translate("brand")}</span>
           </a>
           <div className="hidden items-center gap-6 text-sm font-semibold text-slate-500 lg:flex" dir={direction}>
@@ -44,14 +50,20 @@ export const Header = () => {
               <a key={item.id} href={`/${item.href}`} onClick={createClickHandler(item.href)} className="relative">
                 <span className="transition hover:text-cyan-500">{item.label}</span>
                 {activeId === item.id ? (
-                  <motion.span layoutId="nav-active" className="absolute -bottom-2 left-0 h-[3px] w-full rounded-full bg-cyan-400" />
+                  <motion.span
+                    layoutId="nav-active"
+                    className="absolute -bottom-2 start-0 h-[3px] w-full rounded-full bg-cyan-400"
+                  />
                 ) : null}
               </a>
             ))}
             <RouterLink to="/policy" className="relative text-slate-500 transition hover:text-cyan-500">
               {translate("footer.links.policy")}
               {isPolicy ? (
-                <motion.span layoutId="nav-active" className="absolute -bottom-2 left-0 h-[3px] w-full rounded-full bg-cyan-400" />
+                <motion.span
+                  layoutId="nav-active"
+                  className="absolute -bottom-2 start-0 h-[3px] w-full rounded-full bg-cyan-400"
+                />
               ) : null}
             </RouterLink>
           </div>
@@ -62,7 +74,7 @@ export const Header = () => {
           </div>
           {isPolicy ? (
             <RouterLink to="/" className="text-sm font-semibold text-cyan-400 lg:hidden">
-              ← {translate("nav.home")}
+              {isRTL ? "→" : "←"} {translate("nav.home")}
             </RouterLink>
           ) : null}
         </div>
