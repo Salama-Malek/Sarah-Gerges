@@ -34,17 +34,21 @@ export const Contact = () => {
   };
 
   return (
-    <SectionContainer id="contact" background="contact">
+    <SectionContainer
+      id="contact"
+      background="contact"
+      className="rounded-[3rem] bg-[#f1f5f9] shadow-[0_40px_100px_-60px_rgba(15,23,42,0.35)] dark:bg-[#0f172a]"
+    >
       <div
-        className="mx-auto grid max-w-6xl gap-12 rounded-3xl bg-white/70 p-10 shadow-xl backdrop-blur dark:bg-slate-900/70 md:grid-cols-2"
+        className="mx-auto grid max-w-6xl gap-12 rounded-3xl border border-border-light bg-surface-light/95 p-10 shadow-xl shadow-slate-900/10 backdrop-blur dark:border-border-dark dark:bg-surface-dark/95 md:grid-cols-2"
         dir={direction}
       >
         <div className={`text-start [dir='rtl']:text-end ${isRTL ? "md:order-2" : "md:order-1"}`}>
           <h2 className="section-heading">{title}</h2>
           <p className="section-subheading">{subtitle}</p>
-          <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300">{invitation}</p>
+          <p className="mt-4 text-base leading-relaxed text-gray-700 dark:text-slate-300">{invitation}</p>
           <motion.ul
-            className="mt-8 grid gap-3 text-sm text-slate-600 dark:text-slate-300 text-start [dir='rtl']:text-end"
+            className="mt-8 grid gap-3 text-sm text-gray-700 dark:text-slate-300 text-start [dir='rtl']:text-end"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -54,12 +58,12 @@ export const Contact = () => {
               <li key={channel.href}>
                 <a
                   href={channel.href}
-                  className="group inline-flex items-center justify-between gap-3 rounded-2xl border border-transparent bg-white/50 px-4 py-3 font-semibold text-cyan-600 transition hover:border-cyan-300 hover:bg-cyan-500/10 hover:text-indigo-500 dark:bg-slate-800/60 dark:text-cyan-300 [dir='rtl']:flex-row-reverse"
+                  className="group inline-flex items-center justify-between gap-3 rounded-2xl border border-border-light bg-surface-light px-4 py-3 font-semibold text-accent transition hover:border-accent hover:bg-accent/10 hover:text-accentSecondary dark:border-border-dark dark:bg-surface-dark dark:text-accent [dir='rtl']:flex-row-reverse"
                   target="_blank"
                   rel="noreferrer"
                 >
                   <span>{channel.label}</span>
-                  <span className="text-sm font-medium text-slate-500 transition group-hover:text-indigo-400 dark:text-slate-300">
+                  <span className="text-sm font-medium text-muted transition group-hover:text-accentSecondary dark:text-slate-300">
                     {channel.value}
                   </span>
                 </a>
@@ -83,14 +87,14 @@ export const Contact = () => {
             onChange={(event) => setDraft({ ...draft, email: event.target.value })}
             required
           />
-          <label className="flex flex-col gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <label className="flex flex-col gap-2 text-sm font-medium text-gray-600 dark:text-slate-300">
             <span>{formLabels.message}</span>
             <textarea
               name="message"
               value={draft.message}
               onChange={(event) => setDraft({ ...draft, message: event.target.value })}
               rows={5}
-              className="rounded-2xl border border-slate-200/60 bg-white/90 px-4 py-3 text-base text-slate-900 shadow-sm focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-200 dark:border-slate-700/70 dark:bg-slate-800/80 dark:text-white dark:focus:border-cyan-400"
+              className="rounded-2xl border border-border-light bg-surface-light px-4 py-3 text-base text-gray-800 shadow-sm placeholder:text-slate-400 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 dark:border-border-dark dark:bg-surface-dark dark:text-slate-100 dark:placeholder:text-slate-400 dark:focus:border-accent"
               required
             />
           </label>
@@ -100,7 +104,7 @@ export const Contact = () => {
           <motion.div
             initial={false}
             animate={submitted ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            className="rounded-2xl border border-cyan-500/40 bg-cyan-500/10 px-4 py-3 text-sm font-semibold text-cyan-700 dark:text-cyan-200 text-start [dir='rtl']:text-end"
+            className="rounded-2xl border border-accent/40 bg-accent/10 px-4 py-3 text-sm font-semibold text-accent dark:text-accent text-start [dir='rtl']:text-end"
           >
             {submitted ? translate("contact.success") : ""}
           </motion.div>

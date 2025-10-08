@@ -19,7 +19,7 @@ export const NavDrawer = ({ navItems, policyLabel }: NavDrawerProps) => {
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200/70 bg-white/80 text-slate-600 shadow-sm backdrop-blur transition hover:text-cyan-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-border-light bg-surface-light/80 text-muted shadow-sm backdrop-blur transition hover:text-accent dark:border-border-dark dark:bg-surface-dark/80 dark:text-text-dark"
         aria-expanded={open}
         aria-label="Toggle navigation"
       >
@@ -32,7 +32,7 @@ export const NavDrawer = ({ navItems, policyLabel }: NavDrawerProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className={`absolute ${isRTL ? "left-4" : "right-4"} top-20 z-40 w-[min(320px,80vw)] overflow-hidden rounded-3xl border border-white/10 bg-white/90 p-6 text-slate-800 shadow-xl dark:border-slate-700/60 dark:bg-slate-900/90 dark:text-white`}
+            className={`absolute ${isRTL ? "left-4" : "right-4"} top-20 z-40 w-[min(320px,80vw)] overflow-hidden rounded-3xl border border-border-light bg-surface-light/95 p-6 text-gray-800 shadow-xl shadow-slate-900/10 dark:border-border-dark dark:bg-surface-dark/95 dark:text-slate-100`}
             dir={direction}
           >
             <div className="flex flex-col gap-4 [dir='rtl']:items-end">
@@ -41,14 +41,14 @@ export const NavDrawer = ({ navItems, policyLabel }: NavDrawerProps) => {
                   key={item.id}
                   href={`/${item.href}`}
                   onClick={createClickHandler(item.href, () => setOpen(false))}
-                  className="text-lg font-semibold text-slate-700 transition hover:text-cyan-500 dark:text-slate-200"
+                  className="text-lg font-semibold text-gray-700 transition hover:text-accent dark:text-slate-200"
                 >
                   {item.label}
                 </a>
               ))}
               <RouterLink
                 to="/policy"
-                className="text-lg font-semibold text-cyan-500"
+                className="text-lg font-semibold text-accent"
                 onClick={() => setOpen(false)}
               >
                 {policyLabel}

@@ -15,7 +15,7 @@ export const Accordion = ({ items }: AccordionProps) => {
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null);
 
   return (
-    <div className="divide-y divide-slate-200/40 dark:divide-slate-700/60">
+    <div className="divide-y divide-border-light dark:divide-border-dark/80">
       {items.map((item) => {
         const isOpen = openId === item.id;
         return (
@@ -23,11 +23,11 @@ export const Accordion = ({ items }: AccordionProps) => {
             <button
               type="button"
               onClick={() => setOpenId(isOpen ? null : item.id)}
-              className="flex w-full items-center justify-between gap-4 py-4 text-start text-lg font-medium text-slate-800 transition hover:text-cyan-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200 dark:text-white [dir='rtl']:flex-row-reverse [dir='rtl']:text-end"
+              className="flex w-full items-center justify-between gap-4 py-4 text-start text-lg font-medium text-gray-800 transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 dark:text-slate-100 [dir='rtl']:flex-row-reverse [dir='rtl']:text-end"
               aria-expanded={isOpen}
             >
               <span>{item.title}</span>
-              <span className="text-2xl text-cyan-500">{isOpen ? "−" : "+"}</span>
+              <span className="text-2xl text-accent">{isOpen ? "−" : "+"}</span>
             </button>
             <AnimatePresence initial={false}>
               {isOpen ? (
@@ -39,7 +39,7 @@ export const Accordion = ({ items }: AccordionProps) => {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                   className="overflow-hidden"
                 >
-                  <div className="pb-4 text-base leading-relaxed text-slate-600 dark:text-slate-300 text-start [dir='rtl']:text-end">
+                  <div className="pb-4 text-base leading-relaxed text-gray-700 dark:text-slate-300 text-start [dir='rtl']:text-end">
                     {item.content.map((paragraph) => (
                       <p key={paragraph} className="mb-4 last:mb-0">
                         {paragraph}

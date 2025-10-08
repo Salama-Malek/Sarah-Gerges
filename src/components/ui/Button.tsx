@@ -11,11 +11,12 @@ type ButtonProps = HTMLMotionProps<"button"> & {
 };
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: "bg-cyan-500 text-slate-900 shadow-glow hover:bg-cyan-400 focus-visible:ring-2 focus-visible:ring-cyan-200",
+  primary:
+    "bg-accent text-white shadow-glow hover:bg-sky-500 focus-visible:ring-2 focus-visible:ring-accent/30 dark:hover:bg-sky-400",
   secondary:
-    "border border-cyan-500/60 text-cyan-500 hover:bg-cyan-500/10 focus-visible:ring-2 focus-visible:ring-cyan-200",
+    "border border-accent text-accent hover:bg-accent/10 focus-visible:ring-2 focus-visible:ring-accent/30 dark:hover:bg-accent/20",
   ghost:
-    "text-slate-700 hover:bg-slate-900/5 focus-visible:ring-2 focus-visible:ring-cyan-200 dark:text-slate-200 dark:hover:bg-white/5",
+    "text-gray-700 hover:bg-slate-900/5 focus-visible:ring-2 focus-visible:ring-accent/20 dark:text-slate-200 dark:hover:bg-white/10",
 };
 
 const sizeClasses = {

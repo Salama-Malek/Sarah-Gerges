@@ -38,9 +38,10 @@ export const Layout = () => {
 
   return (
     <div
-      className={`min-h-screen bg-gradient-to-br from-cyan-400/10 via-transparent to-indigo-500/10 pb-24 ${fontClass}`}
+      className={`min-h-screen bg-[color:var(--px-bg)] pb-24 transition-colors duration-300 ease-out ${fontClass}`}
       dir={direction}
     >
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-br from-white via-[#f1f5f9] to-[#e2e8f0] opacity-90 dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#1e293b]" />
       <Header />
       <AnimatePresence mode="wait">
         <motion.main key={path} variants={pageVariants} initial="initial" animate="animate" exit="exit">

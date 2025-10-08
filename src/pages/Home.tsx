@@ -17,7 +17,7 @@ const LoadingPlaceholder = () => (
     animate={{ opacity: 0.6 }}
     transition={{ repeat: Infinity, duration: 1.2, repeatType: "reverse" }}
   >
-    <div className="h-24 rounded-3xl bg-white/40 backdrop-blur dark:bg-slate-800/40" />
+    <div className="h-24 rounded-3xl bg-surface-light/80 backdrop-blur dark:bg-surface-dark/80" />
   </motion.div>
 );
 

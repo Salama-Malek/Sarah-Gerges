@@ -8,6 +8,29 @@ export default {
   theme: {
     extend: {
       colors: {
+        background: {
+          light: "#f9fafb",
+          dark: "#0f172a",
+        },
+        surface: {
+          light: "#ffffff",
+          dark: "#1e293b",
+        },
+        text: {
+          light: "#1e293b",
+          dark: "#e2e8f0",
+          mutedLight: "#475569",
+          mutedDark: "#94a3b8",
+        },
+        border: {
+          light: "#e2e8f0",
+          dark: "#334155",
+        },
+        accent: "#38bdf8",
+        accentSecondary: "#818cf8",
+        success: "#16a34a",
+        warning: "#f59e0b",
+        error: "#ef4444",
         midnight: {
           900: "#0f172a",
           800: "#1e293b"

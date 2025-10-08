@@ -10,37 +10,37 @@ export const Footer = () => {
 
   return (
     <footer
-      className="border-t border-white/20 bg-white/50 backdrop-blur dark:border-slate-700/40 dark:bg-slate-900/60"
+      className="border-t border-border-light bg-[#f1f5f9] text-[#334155] transition-colors duration-300 ease-out dark:border-slate-700 dark:bg-surface-dark dark:text-slate-300"
       dir={direction}
     >
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-12 text-slate-600 dark:text-slate-300">
-        <div className="flex flex-col gap-4 text-sm font-semibold uppercase tracking-wide text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-12">
+        <div className="flex flex-col gap-4 text-sm font-semibold uppercase tracking-wide text-muted sm:flex-row sm:items-center sm:justify-between">
           <div className={`flex flex-wrap gap-4 ${isRTL ? "sm:flex-row-reverse" : ""}`}>
-            <a href="/#hero" onClick={createClickHandler("#hero")} className="hover:text-cyan-500">
+            <a href="/#hero" onClick={createClickHandler("#hero")} className="hover:text-accent">
               {links.home}
             </a>
-            <a href="/#courses" onClick={createClickHandler("#courses")} className="hover:text-cyan-500">
+            <a href="/#courses" onClick={createClickHandler("#courses")} className="hover:text-accent">
               {links.courses}
             </a>
-            <RouterLink to="/policy" className="hover:text-cyan-500">
+            <RouterLink to="/policy" className="hover:text-accent">
               {links.policy}
             </RouterLink>
-            <a href="/#contact" onClick={createClickHandler("#contact")} className="hover:text-cyan-500">
+            <a href="/#contact" onClick={createClickHandler("#contact")} className="hover:text-accent">
               {links.contact}
             </a>
           </div>
-          <div className={`flex flex-wrap gap-3 text-xs normal-case text-slate-500 dark:text-slate-400 ${isRTL ? "sm:flex-row-reverse" : ""}`}>
+          <div className={`flex flex-wrap gap-3 text-xs normal-case text-muted dark:text-slate-400 ${isRTL ? "sm:flex-row-reverse" : ""}`}>
             {social.map((item) => (
-              <a key={item.href} href={item.href} className="hover:text-cyan-500" target="_blank" rel="noreferrer">
+              <a key={item.href} href={item.href} className="hover:text-accent" target="_blank" rel="noreferrer">
                 {item.label}
               </a>
             ))}
           </div>
         </div>
-        <p className="text-sm text-slate-500 dark:text-slate-400 text-start [dir='rtl']:text-end">
+        <p className="text-sm text-muted dark:text-slate-400 text-start [dir='rtl']:text-end">
           {translate("footer.credit")}
         </p>
-        <p className="text-xs text-slate-400 dark:text-slate-500 text-start [dir='rtl']:text-end">
+        <p className="text-xs text-muted dark:text-slate-500 text-start [dir='rtl']:text-end">
           {translate("footer.copyright")}
         </p>
       </div>
