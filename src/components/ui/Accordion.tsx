@@ -23,7 +23,7 @@ export const Accordion = ({ items }: AccordionProps) => {
             <button
               type="button"
               onClick={() => setOpenId(isOpen ? null : item.id)}
-              className="flex w-full items-center justify-between gap-4 py-4 text-left text-lg font-medium text-slate-800 transition hover:text-cyan-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200 dark:text-white"
+              className="flex w-full items-center justify-between gap-4 py-4 text-start text-lg font-medium text-slate-800 transition hover:text-cyan-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200 dark:text-white [dir='rtl']:flex-row-reverse [dir='rtl']:text-end"
               aria-expanded={isOpen}
             >
               <span>{item.title}</span>
@@ -39,7 +39,7 @@ export const Accordion = ({ items }: AccordionProps) => {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                   className="overflow-hidden"
                 >
-                  <div className="pb-4 text-base leading-relaxed text-slate-600 dark:text-slate-300">
+                  <div className="pb-4 text-base leading-relaxed text-slate-600 dark:text-slate-300 text-start [dir='rtl']:text-end">
                     {item.content.map((paragraph) => (
                       <p key={paragraph} className="mb-4 last:mb-0">
                         {paragraph}

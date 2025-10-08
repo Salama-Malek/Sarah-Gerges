@@ -18,11 +18,31 @@ interface LanguageContextValue {
   language: Language;
   setLanguage: (language: Language) => void;
   direction: "ltr" | "rtl";
+  isRTL: boolean;
+  fontClass: string;
   translate: <T = string>(path: string) => T;
   languages: { code: Language; label: string }[];
 }
 
 const LANGUAGE_KEY = "saos-language";
+
+const LANGUAGE_DIRECTION: Record<Language, "ltr" | "rtl"> = {
+  en: "ltr",
+  ru: "ltr",
+  ar: "rtl",
+};
+
+const LANGUAGE_FONT_CLASS: Record<Language, string> = {
+  en: "font-en",
+  ru: "font-ru",
+  ar: "font-ar",
+};
+
+const LANGUAGE_TYPOGRAPHY: Record<Language, string[]> = {
+  en: ["tracking-normal", "leading-relaxed"],
+  ru: ["tracking-normal", "leading-relaxed"],
+  ar: ["tracking-tight", "leading-loose"],
+};
 
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
@@ -36,17 +56,27 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
   const [language, setLanguageState] = useLocalStorage<Language>(LANGUAGE_KEY, "en");
 
   useEffect(() => {
-    const dir = language === "ar" ? "rtl" : "ltr";
+    const dir = LANGUAGE_DIRECTION[language];
     document.documentElement.dir = dir;
     document.documentElement.lang = language;
+    const body = document.body;
+    const directionClass = dir === "rtl" ? "rtl" : "ltr";
+    const fontClass = LANGUAGE_FONT_CLASS[language];
+    const typographyClasses = LANGUAGE_TYPOGRAPHY[language];
+
+    body.classList.remove("rtl", "ltr", "font-en", "font-ru", "font-ar", "tracking-tight", "tracking-normal", "leading-relaxed", "leading-loose");
+    body.classList.add(directionClass, fontClass, ...typographyClasses);
   }, [language]);
 
   const value = useMemo<LanguageContextValue>(() => {
     const data = translations[language];
+    const direction = LANGUAGE_DIRECTION[language];
     return {
       language,
       setLanguage: setLanguageState,
-      direction: language === "ar" ? "rtl" : "ltr",
+      direction,
+      isRTL: direction === "rtl",
+      fontClass: LANGUAGE_FONT_CLASS[language],
       translate: <T,>(path: string) => getValue(path, data) as T,
       languages: (translations[language].languageNames as { code: Language; label: string }[]).map((item) => item),
     };

@@ -23,7 +23,10 @@ export const Rules = () => {
 
   return (
     <SectionContainer id="rules" background="rules">
-      <div className="mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/70 p-10 shadow-xl backdrop-blur dark:border-slate-700/60 dark:bg-slate-900/70" dir={direction}>
+      <div
+        className="mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/70 p-10 shadow-xl backdrop-blur dark:border-slate-700/60 dark:bg-slate-900/70"
+        dir={direction}
+      >
         <h2 className="section-heading text-center">{translate("rules.title")}</h2>
         <p className="section-subheading mx-auto text-center">{translate("rules.description")}</p>
         <div className="mt-10 rounded-2xl bg-white/70 p-6 shadow-inner dark:bg-slate-900/70">
@@ -32,7 +35,7 @@ export const Rules = () => {
           />
         </div>
         <div className="mt-8 flex flex-col gap-4 text-sm text-slate-600 dark:text-slate-300">
-          <label className="flex items-center gap-3">
+          <label className="flex items-center gap-3 [dir='rtl']:flex-row-reverse">
             <input
               type="checkbox"
               checked={agreed}
@@ -41,7 +44,7 @@ export const Rules = () => {
             />
             <span>{acknowledgement}</span>
           </label>
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4 [dir='rtl']:flex-row-reverse">
             <Button variant={agreed ? "primary" : "secondary"} onClick={() => setAgreed(true)}>
               {agreed ? agreedText : agreeLabel}
             </Button>
