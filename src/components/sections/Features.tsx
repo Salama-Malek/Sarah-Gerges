@@ -45,12 +45,15 @@ const AnimatedStat = ({ value, label, visible }: { value: string; label: string;
 
 export const Features = () => {
   const { translate, direction } = useLanguage();
-  const items = translate<{ title: string; description: string }[]>("features.items");
-  const stats = translate<{ label: string; value: string }[]>("features.stats");
+  const pillars = translate<{ title: string; description: string }[]>("mission.pillars");
+  const stats = translate<{ label: string; value: string }[]>("mission.stats");
+  const subtitle = translate("mission.subtitle");
+  const description = translate("mission.description");
+  const title = translate("mission.title");
   const [visible, setVisible] = useState(false);
 
   return (
-    <SectionContainer id="features" className="text-center" background="features">
+    <SectionContainer id="mission" className="text-center" background="features">
       <motion.div
         className="mx-auto max-w-3xl"
         variants={fadeVariants}
@@ -58,16 +61,17 @@ export const Features = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.4 }}
       >
-        <h2 className="section-heading text-balance">{translate("features.title")}</h2>
-        <p className="section-subheading mx-auto">{translate("features.subtitle")}</p>
+        <h2 className="section-heading text-balance">{title}</h2>
+        <p className="section-subheading mx-auto">{subtitle}</p>
+        <p className="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
       </motion.div>
-      <div className="mt-12 grid gap-6 md:grid-cols-2" dir={direction}>
-        {items.map((item) => (
-          <Card key={item.title} hoverGlow className="p-8 text-left">
-            <motion.h3 className="text-2xl font-semibold text-slate-900 dark:text-white" whileHover={{ scale: 1.01 }}>
-              {item.title}
+      <div className="mt-12 grid gap-6 md:grid-cols-3" dir={direction}>
+        {pillars.map((pillar) => (
+          <Card key={pillar.title} hoverGlow className="flex h-full flex-col gap-4 p-8 text-left">
+            <motion.h3 className="text-2xl font-semibold text-slate-900 dark:text-white" whileHover={{ scale: 1.02 }}>
+              {pillar.title}
             </motion.h3>
-            <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300">{item.description}</p>
+            <p className="text-base leading-relaxed text-slate-600 dark:text-slate-300">{pillar.description}</p>
           </Card>
         ))}
       </div>

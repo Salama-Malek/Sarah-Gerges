@@ -16,8 +16,10 @@ interface ContactDraft {
 export const Contact = () => {
   const { translate, direction } = useLanguage();
   const formLabels = translate<{ name: string; email: string; message: string; submit: string }>("contact.form");
-  const details = translate<{ whatsapp: string; telegram: string; email: string }>("contact.details");
-  const links = translate<{ whatsappNumber: string; telegramHandle: string; emailAddress: string }>("contact.links");
+  const title = translate("contact.title");
+  const subtitle = translate("contact.subtitle");
+  const invitation = translate("contact.invitation");
+  const channels = translate<{ label: string; value: string; href: string }[]>("contact.channels");
   const [draft, setDraft] = useLocalStorage<ContactDraft>("saos-contact-draft", {
     name: "",
     email: "",
@@ -33,21 +35,37 @@ export const Contact = () => {
 
   return (
     <SectionContainer id="contact" background="contact">
-      <div className="mx-auto grid max-w-6xl gap-12 rounded-3xl bg-white/70 p-10 shadow-xl backdrop-blur dark:bg-slate-900/70 md:grid-cols-2" dir={direction}>
+      <div
+        className="mx-auto grid max-w-6xl gap-12 rounded-3xl bg-white/70 p-10 shadow-xl backdrop-blur dark:bg-slate-900/70 md:grid-cols-2"
+        dir={direction}
+      >
         <div>
-          <h2 className="section-heading">{translate("contact.title")}</h2>
-          <p className="section-subheading">{translate("contact.subtitle")}</p>
-          <div className="mt-8 space-y-4 text-sm text-slate-600 dark:text-slate-300">
-            <p>
-              <strong className="text-cyan-500">{details.whatsapp}:</strong> {links.whatsappNumber}
-            </p>
-            <p>
-              <strong className="text-cyan-500">{details.telegram}:</strong> {links.telegramHandle}
-            </p>
-            <p>
-              <strong className="text-cyan-500">{details.email}:</strong> {links.emailAddress}
-            </p>
-          </div>
+          <h2 className="section-heading">{title}</h2>
+          <p className="section-subheading">{subtitle}</p>
+          <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300">{invitation}</p>
+          <motion.ul
+            className="mt-8 grid gap-3 text-sm text-slate-600 dark:text-slate-300"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            {channels.map((channel) => (
+              <li key={channel.href}>
+                <a
+                  href={channel.href}
+                  className="group inline-flex items-center justify-between gap-3 rounded-2xl border border-transparent bg-white/50 px-4 py-3 font-semibold text-cyan-600 transition hover:border-cyan-300 hover:bg-cyan-500/10 hover:text-indigo-500 dark:bg-slate-800/60 dark:text-cyan-300"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span>{channel.label}</span>
+                  <span className="text-sm font-medium text-slate-500 transition group-hover:text-indigo-400 dark:text-slate-300">
+                    {channel.value}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </motion.ul>
         </div>
         <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
           <Input

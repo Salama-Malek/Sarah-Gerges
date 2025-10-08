@@ -4,7 +4,7 @@ import { RouterLink } from "../hooks/useRouter";
 
 interface PolicySection {
   title: string;
-  content: string;
+  content: string[];
 }
 
 const Policy = () => {
@@ -18,9 +18,16 @@ const Policy = () => {
         <p className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">{translate("policy.intro")}</p>
         <div className="mt-10 space-y-8">
           {sections.map((section) => (
-            <div key={section.title} className="rounded-2xl border border-white/20 bg-white/60 p-6 shadow-inner dark:border-slate-700/50 dark:bg-slate-900/60">
+            <div
+              key={section.title}
+              className="rounded-2xl border border-white/20 bg-white/60 p-6 shadow-inner dark:border-slate-700/50 dark:bg-slate-900/60"
+            >
               <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">{section.title}</h2>
-              <p className="mt-3 text-base leading-relaxed text-slate-600 dark:text-slate-300">{section.content}</p>
+              <div className="mt-3 space-y-4 text-base leading-relaxed text-slate-600 dark:text-slate-300">
+                {section.content.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
             </div>
           ))}
         </div>

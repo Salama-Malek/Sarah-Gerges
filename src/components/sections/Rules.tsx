@@ -8,7 +8,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 interface RuleItem {
   title: string;
-  content: string;
+  content: string[];
 }
 
 export const Rules = () => {
@@ -27,7 +27,9 @@ export const Rules = () => {
         <h2 className="section-heading text-center">{translate("rules.title")}</h2>
         <p className="section-subheading mx-auto text-center">{translate("rules.description")}</p>
         <div className="mt-10 rounded-2xl bg-white/70 p-6 shadow-inner dark:bg-slate-900/70">
-          <Accordion items={sections.map((section, index) => ({ id: `${index}`, title: section.title, content: section.content }))} />
+          <Accordion
+            items={sections.map((section, index) => ({ id: `${index}`, title: section.title, content: section.content }))}
+          />
         </div>
         <div className="mt-8 flex flex-col gap-4 text-sm text-slate-600 dark:text-slate-300">
           <label className="flex items-center gap-3">
@@ -54,7 +56,11 @@ export const Rules = () => {
           {sections.map((section) => (
             <div key={section.title}>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{section.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{section.content}</p>
+              <div className="mt-2 space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                {section.content.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
             </div>
           ))}
           <Button variant="secondary" onClick={() => setOpen(false)}>
