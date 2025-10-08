@@ -18,7 +18,7 @@ const pageVariants: Variants = {
 
 export const Layout = () => {
   const { path } = useRouter();
-  const { translate } = useLanguage();
+  const { translate, direction, fontClass } = useLanguage();
   const isPolicy = path === "/policy";
   const title = translate(isPolicy ? "meta.policyTitle" : "meta.homeTitle");
   const description = translate(isPolicy ? "meta.policyDescription" : "meta.homeDescription");
@@ -37,7 +37,10 @@ export const Layout = () => {
   }, [title, description]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cyan-400/10 via-transparent to-indigo-500/10 pb-24">
+    <div
+      className={`min-h-screen bg-gradient-to-br from-cyan-400/10 via-transparent to-indigo-500/10 pb-24 ${fontClass}`}
+      dir={direction}
+    >
       <Header />
       <AnimatePresence mode="wait">
         <motion.main key={path} variants={pageVariants} initial="initial" animate="animate" exit="exit">
