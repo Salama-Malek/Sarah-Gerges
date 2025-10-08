@@ -41,9 +41,13 @@ export const Courses = () => {
         <p className="section-subheading mx-auto">{subtitle}</p>
         <p className="mt-4 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-300">{nativeNote}</p>
       </div>
-      <div className="mt-12 grid gap-6 md:grid-cols-2" dir={direction}>
-        {groups.map((group) => (
-          <Card key={group.region} hoverGlow className="flex h-full flex-col gap-6 p-8 text-left">
+        <div className="mt-12 grid gap-6 md:grid-cols-2" dir={direction}>
+          {groups.map((group) => (
+            <Card
+              key={group.region}
+              hoverGlow
+              className="flex h-full flex-col gap-6 p-8 text-start [dir='rtl']:text-end"
+            >
             <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: easeOut }} viewport={{ once: true }}>
               <h3 className="text-2xl font-semibold text-slate-900 dark:text-white">{group.region}</h3>
               <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-cyan-500 dark:text-cyan-300">
@@ -53,12 +57,15 @@ export const Courses = () => {
             </motion.div>
             <ul className="flex flex-col gap-4">
               {group.courses.map((course) => (
-                <li key={`${group.region}-${course.language}-${course.duration}`} className="rounded-2xl border border-white/40 bg-white/60 p-4 shadow-inner transition duration-300 hover:border-cyan-400/60 hover:shadow-lg dark:border-slate-700/60 dark:bg-slate-900/60">
-                  <div className="flex flex-col gap-2">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-lg font-semibold text-slate-900 dark:text-white">{course.language}</span>
-                      <span className="text-sm font-semibold text-cyan-600 dark:text-cyan-300">{course.duration}</span>
-                    </div>
+                  <li
+                    key={`${group.region}-${course.language}-${course.duration}`}
+                    className="rounded-2xl border border-white/40 bg-white/60 p-4 shadow-inner transition duration-300 hover:border-cyan-400/60 hover:shadow-lg dark:border-slate-700/60 dark:bg-slate-900/60"
+                  >
+                    <div className="flex flex-col gap-2">
+                      <div className="flex flex-wrap items-center justify-between gap-2 [dir='rtl']:flex-row-reverse">
+                        <span className="text-lg font-semibold text-slate-900 dark:text-white">{course.language}</span>
+                        <span className="text-sm font-semibold text-cyan-600 dark:text-cyan-300">{course.duration}</span>
+                      </div>
                     <p className="text-base font-semibold text-slate-900 dark:text-white">{course.price}</p>
                     <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">{course.description}</p>
                   </div>

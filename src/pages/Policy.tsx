@@ -8,7 +8,7 @@ interface PolicySection {
 }
 
 const Policy = () => {
-  const { translate, direction } = useLanguage();
+  const { translate, direction, isRTL } = useLanguage();
   const sections = translate<PolicySection[]>("policy.sections");
 
   return (
@@ -23,7 +23,7 @@ const Policy = () => {
               className="rounded-2xl border border-white/20 bg-white/60 p-6 shadow-inner dark:border-slate-700/50 dark:bg-slate-900/60"
             >
               <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">{section.title}</h2>
-              <div className="mt-3 space-y-4 text-base leading-relaxed text-slate-600 dark:text-slate-300">
+              <div className="mt-3 space-y-4 text-base leading-relaxed text-slate-600 dark:text-slate-300 text-start [dir='rtl']:text-end">
                 {section.content.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -32,7 +32,9 @@ const Policy = () => {
           ))}
         </div>
         <RouterLink to="/" className="mt-10 inline-flex">
-          <Button variant="secondary">{translate("policy.back")}</Button>
+          <Button variant="secondary">
+            {isRTL ? `${translate("policy.back")} ←` : `← ${translate("policy.back")}`}
+          </Button>
         </RouterLink>
       </div>
     </div>

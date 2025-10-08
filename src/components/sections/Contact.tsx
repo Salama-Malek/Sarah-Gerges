@@ -14,7 +14,7 @@ interface ContactDraft {
 }
 
 export const Contact = () => {
-  const { translate, direction } = useLanguage();
+  const { translate, direction, isRTL } = useLanguage();
   const formLabels = translate<{ name: string; email: string; message: string; submit: string }>("contact.form");
   const title = translate("contact.title");
   const subtitle = translate("contact.subtitle");
@@ -39,12 +39,12 @@ export const Contact = () => {
         className="mx-auto grid max-w-6xl gap-12 rounded-3xl bg-white/70 p-10 shadow-xl backdrop-blur dark:bg-slate-900/70 md:grid-cols-2"
         dir={direction}
       >
-        <div>
+        <div className={`text-start [dir='rtl']:text-end ${isRTL ? "md:order-2" : "md:order-1"}`}>
           <h2 className="section-heading">{title}</h2>
           <p className="section-subheading">{subtitle}</p>
           <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300">{invitation}</p>
           <motion.ul
-            className="mt-8 grid gap-3 text-sm text-slate-600 dark:text-slate-300"
+            className="mt-8 grid gap-3 text-sm text-slate-600 dark:text-slate-300 text-start [dir='rtl']:text-end"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -54,7 +54,7 @@ export const Contact = () => {
               <li key={channel.href}>
                 <a
                   href={channel.href}
-                  className="group inline-flex items-center justify-between gap-3 rounded-2xl border border-transparent bg-white/50 px-4 py-3 font-semibold text-cyan-600 transition hover:border-cyan-300 hover:bg-cyan-500/10 hover:text-indigo-500 dark:bg-slate-800/60 dark:text-cyan-300"
+                  className="group inline-flex items-center justify-between gap-3 rounded-2xl border border-transparent bg-white/50 px-4 py-3 font-semibold text-cyan-600 transition hover:border-cyan-300 hover:bg-cyan-500/10 hover:text-indigo-500 dark:bg-slate-800/60 dark:text-cyan-300 [dir='rtl']:flex-row-reverse"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -67,7 +67,7 @@ export const Contact = () => {
             ))}
           </motion.ul>
         </div>
-        <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+        <form className={`flex flex-col gap-5 ${isRTL ? "md:order-1" : "md:order-2"}`} onSubmit={handleSubmit}>
           <Input
             label={formLabels.name}
             name="name"
@@ -100,7 +100,7 @@ export const Contact = () => {
           <motion.div
             initial={false}
             animate={submitted ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            className="rounded-2xl border border-cyan-500/40 bg-cyan-500/10 px-4 py-3 text-sm font-semibold text-cyan-700 dark:text-cyan-200"
+            className="rounded-2xl border border-cyan-500/40 bg-cyan-500/10 px-4 py-3 text-sm font-semibold text-cyan-700 dark:text-cyan-200 text-start [dir='rtl']:text-end"
           >
             {submitted ? translate("contact.success") : ""}
           </motion.div>

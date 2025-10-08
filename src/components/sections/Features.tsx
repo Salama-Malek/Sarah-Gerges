@@ -11,7 +11,17 @@ const fadeVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
 };
 
-const AnimatedStat = ({ value, label, visible }: { value: string; label: string; visible: boolean }) => {
+const AnimatedStat = ({
+  value,
+  label,
+  visible,
+  direction,
+}: {
+  value: string;
+  label: string;
+  visible: boolean;
+  direction: "ltr" | "rtl";
+}) => {
   const numeric = parseInt(value.replace(/[^0-9]/g, ""), 10) || 0;
   const suffix = value.replace(/[0-9]/g, "");
   const [display, setDisplay] = useState(0);
@@ -33,7 +43,7 @@ const AnimatedStat = ({ value, label, visible }: { value: string; label: string;
   }, [numeric, visible]);
 
   return (
-    <div className="text-left">
+    <div className="text-start [dir='rtl']:text-end" dir={direction}>
       <p className="text-4xl font-semibold text-slate-900 dark:text-white">
         {display}
         {suffix}
@@ -62,12 +72,16 @@ export const Features = () => {
         viewport={{ once: true, amount: 0.4 }}
       >
         <h2 className="section-heading text-balance">{title}</h2>
-        <p className="section-subheading mx-auto">{subtitle}</p>
+        <p className="section-subheading mx-auto text-balance">{subtitle}</p>
         <p className="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
       </motion.div>
       <div className="mt-12 grid gap-6 md:grid-cols-3" dir={direction}>
         {pillars.map((pillar) => (
-          <Card key={pillar.title} hoverGlow className="flex h-full flex-col gap-4 p-8 text-left">
+          <Card
+            key={pillar.title}
+            hoverGlow
+            className="flex h-full flex-col gap-4 p-8 text-start [dir='rtl']:text-end"
+          >
             <motion.h3 className="text-2xl font-semibold text-slate-900 dark:text-white" whileHover={{ scale: 1.02 }}>
               {pillar.title}
             </motion.h3>
@@ -76,7 +90,7 @@ export const Features = () => {
         ))}
       </div>
       <motion.div
-        className="mt-12 flex flex-wrap justify-center gap-8"
+        className="mt-12 flex flex-wrap justify-center gap-8 [dir='rtl']:flex-row-reverse"
         variants={fadeVariants}
         initial="hidden"
         whileInView="visible"
@@ -84,7 +98,7 @@ export const Features = () => {
         onViewportEnter={() => setVisible(true)}
       >
         {stats.map((stat) => (
-          <AnimatedStat key={stat.label} value={stat.value} label={stat.label} visible={visible} />
+          <AnimatedStat key={stat.label} value={stat.value} label={stat.label} visible={visible} direction={direction} />
         ))}
       </motion.div>
     </SectionContainer>
