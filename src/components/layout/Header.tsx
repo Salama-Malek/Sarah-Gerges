@@ -15,11 +15,10 @@ export const Header = () => {
   const navItems = useMemo(
     () => [
       { id: "hero", label: translate("nav.home"), href: "#hero" },
-      { id: "features", label: translate("nav.features"), href: "#features" },
+      { id: "mission", label: translate("nav.mission"), href: "#mission" },
       { id: "about", label: translate("nav.about"), href: "#about" },
       { id: "courses", label: translate("nav.courses"), href: "#courses" },
-      { id: "testimonials", label: translate("nav.testimonials"), href: "#testimonials" },
-      { id: "pricing", label: translate("nav.pricing"), href: "#pricing" },
+      { id: "rules", label: translate("nav.rules"), href: "#rules" },
       { id: "contact", label: translate("nav.contact"), href: "#contact" },
     ],
     [translate]
@@ -57,13 +56,7 @@ export const Header = () => {
           <div className="flex items-center gap-3">
             <LangSwitcher />
             <ThemeToggle />
-            <NavDrawer
-              navItems={[
-                ...navItems,
-                { id: "rules", label: translate("nav.rules"), href: "#rules" },
-              ]}
-              policyLabel={translate("footer.links.policy")}
-            />
+            <NavDrawer navItems={navItems} policyLabel={translate("footer.links.policy")} />
           </div>
           {isPolicy ? (
             <RouterLink to="/" className="text-sm font-semibold text-cyan-400 lg:hidden">

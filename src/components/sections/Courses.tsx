@@ -1,119 +1,85 @@
-import { useMemo, useState, useRef } from "react";
-import { AnimatePresence, LayoutGroup, motion, useInView } from "framer-motion";
+import { useCallback } from "react";
+import { motion } from "framer-motion";
 import { SectionContainer } from "../ui/SectionContainer";
 import { Card } from "../ui/Card";
 import { Button } from "../ui/Button";
 import { useLanguage } from "../../hooks/useLanguage";
 
-interface CourseItem {
-  id: string;
+interface Course {
   language: string;
-  title: string;
-  emoji: string;
   duration: string;
-  level: string;
+  price: string;
   description: string;
+}
+
+interface CourseGroup {
+  region: string;
+  audience: string;
+  note: string;
+  courses: Course[];
 }
 
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-const CourseCard = ({ course, cta }: { course: CourseItem; cta: string }) => {
-  const cardRef = useRef<HTMLDivElement | null>(null);
-  const inView = useInView(cardRef, { once: true, margin: "-10% 0px" });
-
-  return (
-    <Card ref={cardRef} hoverGlow className="flex h-full flex-col justify-between p-8 text-left">
-      <div>
-        <div className="flex items-center gap-3 text-2xl font-semibold text-slate-900 dark:text-white">
-          <span>{course.emoji}</span>
-          <h3>{course.title}</h3>
-        </div>
-        <div className="mt-4 flex items-center gap-4 text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-          <span>{course.duration}</span>
-          <span className="h-1 w-1 rounded-full bg-slate-400" />
-          <span>{course.level}</span>
-        </div>
-        <AnimatePresence>
-            {inView ? (
-              <motion.p
-                key={`${course.id}-description`}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4, ease: easeOut }}
-                className="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-300"
-              >
-                {course.description}
-              </motion.p>
-            ) : (
-            <motion.div
-              key={`${course.id}-placeholder`}
-              className="mt-6 h-20 rounded-2xl bg-slate-200/40 dark:bg-slate-700/30"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            />
-          )}
-        </AnimatePresence>
-      </div>
-      <div className="mt-8">
-        <Button variant="secondary" className="w-full">
-          {cta}
-        </Button>
-      </div>
-    </Card>
-  );
-};
-
 export const Courses = () => {
   const { translate, direction } = useLanguage();
-  const filters = translate<{ key: string; label: string }[]>("courses.filters");
-  const items = translate<CourseItem[]>("courses.items");
-  const cta = translate("courses.enroll");
-  const [filter, setFilter] = useState(filters[0]?.key ?? "arabic");
+  const groups = translate<CourseGroup[]>("courses.groups");
+  const title = translate("courses.title");
+  const subtitle = translate("courses.subtitle");
+  const nativeNote = translate("courses.nativeNote");
+  const comingSoon = translate("courses.comingSoon");
+  const cta = translate("courses.cta");
 
-  const filteredCourses = useMemo(() => {
-    return items.filter((course) => (filter ? course.language === filter : true));
-  }, [items, filter]);
+  const handleBookTrial = useCallback(() => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  }, []);
 
   return (
     <SectionContainer id="courses" className="text-center" background="courses">
       <div className="mx-auto max-w-3xl" dir={direction}>
-        <h2 className="section-heading text-balance">{translate("courses.title")}</h2>
-        <p className="section-subheading mx-auto">{translate("courses.subtitle")}</p>
+        <h2 className="section-heading text-balance">{title}</h2>
+        <p className="section-subheading mx-auto">{subtitle}</p>
+        <p className="mt-4 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-300">{nativeNote}</p>
       </div>
-      <div className="mt-8 flex justify-center">
-        <LayoutGroup>
-          <div className="flex flex-wrap items-center justify-center gap-3 rounded-full border border-white/30 bg-white/60 px-4 py-2 backdrop-blur dark:border-slate-700/60 dark:bg-slate-900/60">
-            {filters.map((option) => (
-              <button
-                key={option.key}
-                onClick={() => setFilter(option.key)}
-                className="relative rounded-full px-4 py-2 text-sm font-semibold text-slate-500 transition hover:text-cyan-500 dark:text-slate-300"
-              >
-                {filter === option.key ? (
-                  <motion.span
-                    layoutId="course-filter"
-                    className="absolute inset-0 rounded-full bg-cyan-500/20"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  />
-                ) : null}
-                <span className="relative z-10">{option.label}</span>
-              </button>
-            ))}
-          </div>
-        </LayoutGroup>
+      <div className="mt-12 grid gap-6 md:grid-cols-2" dir={direction}>
+        {groups.map((group) => (
+          <Card key={group.region} hoverGlow className="flex h-full flex-col gap-6 p-8 text-left">
+            <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: easeOut }} viewport={{ once: true }}>
+              <h3 className="text-2xl font-semibold text-slate-900 dark:text-white">{group.region}</h3>
+              <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-cyan-500 dark:text-cyan-300">
+                {group.audience}
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-slate-600 dark:text-slate-300">{group.note}</p>
+            </motion.div>
+            <ul className="flex flex-col gap-4">
+              {group.courses.map((course) => (
+                <li key={`${group.region}-${course.language}-${course.duration}`} className="rounded-2xl border border-white/40 bg-white/60 p-4 shadow-inner transition duration-300 hover:border-cyan-400/60 hover:shadow-lg dark:border-slate-700/60 dark:bg-slate-900/60">
+                  <div className="flex flex-col gap-2">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-lg font-semibold text-slate-900 dark:text-white">{course.language}</span>
+                      <span className="text-sm font-semibold text-cyan-600 dark:text-cyan-300">{course.duration}</span>
+                    </div>
+                    <p className="text-base font-semibold text-slate-900 dark:text-white">{course.price}</p>
+                    <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">{course.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <Button variant="secondary" className="mt-auto w-full" onClick={handleBookTrial}>
+              {cta}
+            </Button>
+          </Card>
+        ))}
       </div>
-      <LayoutGroup>
-        <motion.div layout className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3" dir={direction}>
-          <AnimatePresence mode="popLayout">
-            {filteredCourses.map((course) => (
-              <motion.div key={course.id} layout initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}>
-                <CourseCard course={course} cta={cta} />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-      </LayoutGroup>
+      <motion.p
+        className="mt-10 text-sm font-medium uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400"
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: easeOut }}
+      >
+        {comingSoon}
+      </motion.p>
     </SectionContainer>
   );
 };
