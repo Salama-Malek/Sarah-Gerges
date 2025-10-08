@@ -8,7 +8,7 @@ export const ThemeToggle = () => {
     <button
       type="button"
       onClick={toggleTheme}
-      className="relative flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/60 bg-white/80 shadow-sm backdrop-blur dark:border-slate-700 dark:bg-slate-800"
+      className="relative flex h-10 w-10 items-center justify-center rounded-full border border-border-light bg-surface-light/80 text-muted shadow-sm backdrop-blur hover:text-accent dark:border-border-dark dark:bg-surface-dark/80 dark:text-text-dark"
       aria-label={theme === "light" ? "Activate dark mode" : "Activate light mode"}
     >
       <motion.span
