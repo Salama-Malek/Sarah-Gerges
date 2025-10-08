@@ -42,7 +42,7 @@ export const Modal = ({ open, onClose, title, children }: ModalProps) => {
           <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-md" onClick={onClose} />
           <motion.div
             role="document"
-            className="w-full max-w-2xl overflow-hidden rounded-3xl border border-white/40 bg-white/90 p-8 text-slate-900 shadow-lg shadow-slate-900/10 backdrop-blur-xl transition-all duration-300 ease-out dark:border-slate-700/60 dark:bg-slate-900/80 dark:text-white dark:shadow-slate-900/40 dark:ring-1 dark:ring-cyan-300/20"
+            className="glass-panel w-full max-w-2xl overflow-hidden bg-white/90 p-8 text-slate-900 dark:bg-slate-900/80 dark:text-white"
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}

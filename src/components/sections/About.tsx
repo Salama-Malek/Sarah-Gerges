@@ -17,9 +17,7 @@ export const About = () => {
         dir={direction}
       >
         <div>
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-            {translate("about.title")}
-          </h2>
+          <h2 className="section-heading">{translate("about.title")}</h2>
           <p className="mt-6 text-lg leading-relaxed text-slate-700 dark:text-slate-200">{translate("about.body")}</p>
         </div>
         <div className="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 p-6 text-lg font-semibold text-cyan-700 dark:border-cyan-400/40 dark:bg-cyan-500/10 dark:text-cyan-200">

@@ -35,12 +35,8 @@ export const Contact = () => {
     <SectionContainer id="contact" background="contact">
       <div className="mx-auto grid max-w-6xl gap-12 rounded-3xl bg-white/70 p-10 shadow-xl backdrop-blur dark:bg-slate-900/70 md:grid-cols-2" dir={direction}>
         <div>
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-            {translate("contact.title")}
-          </h2>
-          <p className="mt-3 max-w-xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-            {translate("contact.subtitle")}
-          </p>
+          <h2 className="section-heading">{translate("contact.title")}</h2>
+          <p className="section-subheading">{translate("contact.subtitle")}</p>
           <div className="mt-8 space-y-4 text-sm text-slate-600 dark:text-slate-300">
             <p>
               <strong className="text-cyan-500">{details.whatsapp}:</strong> {links.whatsappNumber}

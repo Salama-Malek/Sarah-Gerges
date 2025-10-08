@@ -17,9 +17,11 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(({ children, className
       whileHover={hoverGlow ? { y: -6, boxShadow: "0 30px 60px -30px rgba(56, 189, 248, 0.6)" } : undefined}
       transition={{ type: "spring", stiffness: 240, damping: 20 }}
       className={cn(
-        "relative overflow-hidden rounded-3xl border border-white/40 bg-white/70",
-        "shadow-lg shadow-slate-900/5 backdrop-blur-xl transition-all duration-300 ease-out",
-        "dark:border-slate-700/60 dark:bg-slate-800/70 dark:shadow-slate-900/40 dark:ring-1 dark:ring-cyan-300/20",
+        "glass-panel glass-border relative overflow-hidden",
+        "bg-white/70 dark:bg-slate-800/70",
+        "border border-white/40 dark:border-white/10",
+        "shadow-lg shadow-slate-900/5",
+        "transition-all duration-300",
         className
       )}
     >
