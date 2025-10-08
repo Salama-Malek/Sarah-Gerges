@@ -11,7 +11,7 @@ interface NavDrawerProps {
 
 export const NavDrawer = ({ navItems, policyLabel }: NavDrawerProps) => {
   const [open, setOpen] = useState(false);
-  const { direction } = useLanguage();
+  const { direction, isRTL } = useLanguage();
   const { createClickHandler } = useSectionNavigation();
 
   return (
@@ -32,10 +32,10 @@ export const NavDrawer = ({ navItems, policyLabel }: NavDrawerProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="absolute right-4 top-20 z-40 w-[min(320px,80vw)] overflow-hidden rounded-3xl border border-white/10 bg-white/90 p-6 text-slate-800 shadow-xl dark:border-slate-700/60 dark:bg-slate-900/90 dark:text-white"
+            className={`absolute ${isRTL ? "left-4" : "right-4"} top-20 z-40 w-[min(320px,80vw)] overflow-hidden rounded-3xl border border-white/10 bg-white/90 p-6 text-slate-800 shadow-xl dark:border-slate-700/60 dark:bg-slate-900/90 dark:text-white`}
             dir={direction}
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 [dir='rtl']:items-end">
               {navItems.map((item) => (
                 <a
                   key={item.id}
@@ -46,7 +46,11 @@ export const NavDrawer = ({ navItems, policyLabel }: NavDrawerProps) => {
                   {item.label}
                 </a>
               ))}
-              <RouterLink to="/policy" className="text-lg font-semibold text-cyan-500" onClick={() => setOpen(false)}>
+              <RouterLink
+                to="/policy"
+                className="text-lg font-semibold text-cyan-500"
+                onClick={() => setOpen(false)}
+              >
                 {policyLabel}
               </RouterLink>
             </div>
