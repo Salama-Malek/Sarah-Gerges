@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "../../hooks/useLanguage";
 import { RouterLink } from "../../hooks/useRouter";
+import { useSectionNavigation } from "../../hooks/useSectionNavigation";
 
 interface NavDrawerProps {
   navItems: { id: string; label: string; href: string }[];
@@ -11,6 +12,7 @@ interface NavDrawerProps {
 export const NavDrawer = ({ navItems, policyLabel }: NavDrawerProps) => {
   const [open, setOpen] = useState(false);
   const { direction } = useLanguage();
+  const { createClickHandler } = useSectionNavigation();
 
   return (
     <div className="lg:hidden">
@@ -37,8 +39,8 @@ export const NavDrawer = ({ navItems, policyLabel }: NavDrawerProps) => {
               {navItems.map((item) => (
                 <a
                   key={item.id}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
+                  href={`/${item.href}`}
+                  onClick={createClickHandler(item.href, () => setOpen(false))}
                   className="text-lg font-semibold text-slate-700 transition hover:text-cyan-500 dark:text-slate-200"
                 >
                   {item.label}

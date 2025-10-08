@@ -7,11 +7,13 @@ import { useLanguage } from "../../hooks/useLanguage";
 import { useScrollProgress } from "../../hooks/useScrollProgress";
 import { useActiveSection } from "../../hooks/useActiveSection";
 import { RouterLink, useRouter } from "../../hooks/useRouter";
+import { useSectionNavigation } from "../../hooks/useSectionNavigation";
 
 export const Header = () => {
   const { translate, direction } = useLanguage();
   const { path } = useRouter();
   const progress = useScrollProgress();
+  const { createClickHandler } = useSectionNavigation();
   const navItems = useMemo(
     () => [
       { id: "hero", label: translate("nav.home"), href: "#hero" },
@@ -34,12 +36,12 @@ export const Header = () => {
       </div>
       <nav className="mt-4 w-full px-4">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full border border-white/20 bg-white/70 px-6 py-3 shadow-lg shadow-slate-900/10 backdrop-blur-xl dark:border-slate-700/80 dark:bg-slate-900/80">
-          <a href="#hero" className="flex items-center gap-3">
+          <a href="/#hero" onClick={createClickHandler("#hero")} className="flex items-center gap-3">
             <span className="text-lg font-semibold text-slate-900 dark:text-white">{translate("brand")}</span>
           </a>
           <div className="hidden items-center gap-6 text-sm font-semibold text-slate-500 lg:flex" dir={direction}>
             {navItems.map((item) => (
-              <a key={item.id} href={item.href} className="relative">
+              <a key={item.id} href={`/${item.href}`} onClick={createClickHandler(item.href)} className="relative">
                 <span className="transition hover:text-cyan-500">{item.label}</span>
                 {activeId === item.id ? (
                   <motion.span layoutId="nav-active" className="absolute -bottom-2 left-0 h-[3px] w-full rounded-full bg-cyan-400" />
