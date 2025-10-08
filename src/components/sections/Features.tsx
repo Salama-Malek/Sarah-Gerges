@@ -58,12 +58,8 @@ export const Features = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.4 }}
       >
-        <h2 className="text-balance text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-          {translate("features.title")}
-        </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          {translate("features.subtitle")}
-        </p>
+        <h2 className="section-heading text-balance">{translate("features.title")}</h2>
+        <p className="section-subheading mx-auto">{translate("features.subtitle")}</p>
       </motion.div>
       <div className="mt-12 grid gap-6 md:grid-cols-2" dir={direction}>
         {items.map((item) => (

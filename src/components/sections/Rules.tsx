@@ -23,16 +23,9 @@ export const Rules = () => {
 
   return (
     <SectionContainer id="rules" background="rules">
-      <div
-        className="mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/70 p-10 shadow-xl backdrop-blur dark:border-slate-700/60 dark:bg-slate-900/70"
-        dir={direction}
-      >
-        <h2 className="text-center text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-          {translate("rules.title")}
-        </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          {translate("rules.description")}
-        </p>
+      <div className="mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/70 p-10 shadow-xl backdrop-blur dark:border-slate-700/60 dark:bg-slate-900/70" dir={direction}>
+        <h2 className="section-heading text-center">{translate("rules.title")}</h2>
+        <p className="section-subheading mx-auto text-center">{translate("rules.description")}</p>
         <div className="mt-10 rounded-2xl bg-white/70 p-6 shadow-inner dark:bg-slate-900/70">
           <Accordion items={sections.map((section, index) => ({ id: `${index}`, title: section.title, content: section.content }))} />
         </div>

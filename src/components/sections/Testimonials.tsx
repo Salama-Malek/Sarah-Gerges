@@ -18,12 +18,8 @@ export const Testimonials = () => {
   return (
     <SectionContainer id="testimonials" className="text-center" background="testimonials">
       <div className="mx-auto max-w-3xl" dir={direction}>
-        <h2 className="text-balance text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-          {translate("testimonials.title")}
-        </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          {translate("testimonials.subtitle")}
-        </p>
+        <h2 className="section-heading text-balance">{translate("testimonials.title")}</h2>
+        <p className="section-subheading mx-auto">{translate("testimonials.subtitle")}</p>
       </div>
       <motion.div
         className="mt-12 cursor-grab overflow-hidden"
