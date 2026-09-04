@@ -50,3 +50,7 @@ src/
 ├── pages/          # Home, Policy
 └── styles/         # global.css
 ```
+
+## License
+
+MIT. See [LICENSE](LICENSE).
