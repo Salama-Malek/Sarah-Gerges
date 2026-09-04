@@ -1,5 +1,9 @@
 # SA Online School
 
+![Deploy](https://github.com/Salama-Malek/Sarah-Gerges/actions/workflows/deploy.yml/badge.svg)
+
+Live demo: https://salama-malek.github.io/Sarah-Gerges/
+
 A marketing and booking website for an online English and Arabic language school.
 
 ## Overview
