@@ -4,6 +4,8 @@
 
 Live demo: https://salama-malek.github.io/Sarah-Gerges/
 
+![Screenshot of the site](docs/screenshot.jpg)
+
 A marketing and booking website for an online English and Arabic language school.
 
 ## Overview
