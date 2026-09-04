@@ -1,73 +1,48 @@
-# React + TypeScript + Vite
+# SA Online School
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A marketing and booking website for an online English and Arabic language school.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+SA Online School is a single-page marketing site built for Sarah Gerges' online language school. It presents the school's mission, course catalog, pricing, and study rules to prospective students, and gives visitors a way to get in touch. The site supports English, Russian, and Arabic (including right-to-left layout) and offers both light and dark themes.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Multilingual UI (English, Russian, Arabic) with automatic RTL layout for Arabic
+- Light/dark theme toggle with persisted preference
+- Section-based landing page: hero, mission/features, about, courses, pricing, school rules, testimonials, and contact
+- Client-side routing with a slide-in navigation drawer for mobile
+- Animated section transitions and lazy-loaded sections for fast initial load
+- Reusable UI primitives (buttons, cards, accordion, modal, inputs)
 
-## Expanding the ESLint configuration
+## Tech stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19 + TypeScript
+- Vite 7
+- Tailwind CSS 3 (with `tailwindcss-logical` and `@tailwindcss/forms`)
+- Framer Motion for animation
+- ESLint with `typescript-eslint`
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev       # start the local dev server
+npm run build      # type-check and build for production
+npm run preview    # preview the production build locally
+npm run lint        # run ESLint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Project structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── components/
+│   ├── layout/     # Header, Footer, NavDrawer, ThemeToggle, LangSwitcher
+│   ├── sections/   # Hero, Features, About, Courses, Pricing, Rules, Testimonials, Contact
+│   └── ui/         # Button, Card, Input, Modal, Accordion, SectionContainer
+├── hooks/          # useRouter, useLanguage, useTheme, useLocalStorage, useActiveSection, ...
+├── i18n/           # en.json, ru.json, ar.json translation dictionaries
+├── pages/          # Home, Policy
+└── styles/         # global.css
 ```
