@@ -10,6 +10,27 @@ const RouterContext = createContext<RouterContextValue | undefined>(undefined);
 
 const ALLOWED_PATHS = new Set(["/", "/policy"]);
 
+// import.meta.env.BASE_URL is always "/" in dev and e.g. "/Sarah-Gerges/" in
+// production (see vite.config.ts `base`). Normalize it to have no trailing
+// slash so it can be cleanly prepended to app-internal paths (which always
+// start with "/").
+const RAW_BASE = import.meta.env.BASE_URL ?? "/";
+const BASE = RAW_BASE.endsWith("/") ? RAW_BASE.slice(0, -1) : RAW_BASE;
+
+// Strip the Vite base from a real browser pathname, producing an
+// app-internal path that always starts with "/".
+const stripBase = (pathname: string) => {
+  if (BASE && pathname.startsWith(BASE)) {
+    const rest = pathname.slice(BASE.length);
+    return rest.startsWith("/") ? rest : `/${rest}`;
+  }
+  return pathname;
+};
+
+// Prepend the Vite base to an app-internal path to produce a real browser
+// pathname suitable for pushState/replaceState.
+const withBase = (pathname: string) => `${BASE}${pathname}`;
+
 const normalizePath = (pathname: string) => (ALLOWED_PATHS.has(pathname) ? pathname : "/");
 
 const getInitialLocation = () => {
@@ -17,9 +38,10 @@ const getInitialLocation = () => {
     return { path: "/", hash: "" };
   }
   const hash = window.location.hash;
-  const normalizedPath = normalizePath(window.location.pathname);
-  if (normalizedPath !== window.location.pathname) {
-    window.history.replaceState({}, "", `${normalizedPath}${hash}`);
+  const appPath = stripBase(window.location.pathname);
+  const normalizedPath = normalizePath(appPath);
+  if (normalizedPath !== appPath) {
+    window.history.replaceState({}, "", `${withBase(normalizedPath)}${hash}`);
   }
   return { path: normalizedPath, hash };
 };
@@ -30,10 +52,11 @@ export const RouterProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const handlePopState = () => {
-      const nextPath = normalizePath(window.location.pathname);
+      const appPath = stripBase(window.location.pathname);
+      const nextPath = normalizePath(appPath);
       const hash = window.location.hash;
-      if (nextPath !== window.location.pathname) {
-        window.history.replaceState({}, "", `${nextPath}${hash}`);
+      if (nextPath !== appPath) {
+        window.history.replaceState({}, "", `${withBase(nextPath)}${hash}`);
       }
       setLocation({ path: nextPath, hash });
     };
@@ -73,7 +96,7 @@ export const RouterProvider = ({ children }: { children: ReactNode }) => {
     const safePath = normalizePath(nextPath);
     const nextHash = options?.hash ?? "";
     const normalizedHash = nextHash && nextHash.startsWith("#") ? nextHash : nextHash ? `#${nextHash}` : "";
-    const url = `${safePath}${normalizedHash}`;
+    const url = `${withBase(safePath)}${normalizedHash}`;
 
     const isSameLocation = path === safePath && hash === normalizedHash;
     if (isSameLocation) return;
